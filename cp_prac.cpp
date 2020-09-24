@@ -13061,11 +13061,7 @@ int main(){
     newHead->next = first;
     first = newHead;
 
-    // printing the linkedlist after inserting new node at the start
-    while(first != null){
-        cout<<first->data<<" ";
-        first = first->next;
-    }
+    // Testing git here
 
 
 }
