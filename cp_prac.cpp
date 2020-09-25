@@ -13021,3 +13021,18 @@
 //     }
 // } 
  
+// // hackerrank left rotation - ds
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int n, k; cin>>n>>k;
+//     int a[n];
+//     for(int i=0; i<n; i++) cin>>a[i];
+//     for(int i=k; i<n; i++) cout<<a[i]<<" ";
+//     for(int i=0; i<k; i++) cout<<a[i]<<" ";
+// } a/c
+
+
