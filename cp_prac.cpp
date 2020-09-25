@@ -12990,27 +12990,33 @@
 // } a/c
 
 // Complete this asap, problem statement link https://bit.ly/3iX8mWo
-// // Aditya @ydasc815
-// #include<bits/stdc++.h>
-// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
-// using namespace std;
-// int main(){
-//     FastIO
-//     int t, n; cin>>t;
-//     while(t--){
-//         cin>>n;
-//         int a[n], lf = 0;
-//         for(int i=0; i<n; i++) cin>>a[i];
-//         int v = a[0], vi = 0, i = 1;
-//         while(i < n){
-//             if(a[i] < v || vi == 0){
-//                 lf = 1;
-//                 while(a[i] < v && i < n) i++;
-//                 if(i <= n-1) v = a[i], vi = i, lf = 0;
-//             } else i++;
-//         }
-//         if(vi != 0 && vi != n-1) cout<<v<<"\n";
-//         else cout<<"-1"<<"\n";
-//     }
-// } 
+// Aditya @ydasc815
+#include<bits/stdc++.h>
+#define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+using namespace std;
+int main(){
+    FastIO
+    int t, n; cin>>t;
+    while(t--){
+        cin>>n;
+        int a[n], max_arr[n], min_arr[n], x = a[0];
+        for(int i=0; i<n; i++) cin>>a[i];
+        for(int i=0; i<n; i++){
+            x = max(x, a[i]);
+            max_arr[i] = x;
+        } x = a[n-1];
+        for(int i=n-1; i>=0; i--){
+            x = min(x, a[i]);
+            min_arr[i] = x;
+        }
+        x = -1;
+        for(int i=0; i<n; i++){
+            if(max_arr[i] == min_arr[i] && i!=0 && i!=n-1){
+                x = a[i];
+                break;
+            }
+        }
+        cout<<x<<"\n";
+    }
+} 
  
