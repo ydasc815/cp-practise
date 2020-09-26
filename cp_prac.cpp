@@ -13035,4 +13035,24 @@
 //     for(int i=0; i<k; i++) cout<<a[i]<<" ";
 // } a/c
 
-
+// Aditya @ydasc815
+#include<bits/stdc++.h>
+#define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+using namespace std;
+int main(){
+    FastIO
+    int t; cin>>t;
+    while(t--){
+        string s, st = ""; getline(cin, s, '\n');
+        transform(s.begin(), s.end(), s.begin(), ::tolower);
+        for(int i=0; i<s.length(); i++){
+            if((s[i] >= 97 && s[i] <= 122) || (s[i] >= 48 && s[i] <= 57)) {
+                st.append(s.substr(i, 1));
+            }
+        }
+        string str = st;
+        reverse(str.begin(), str.end());
+        if(st == str) cout<<"YES"<<"\n";
+        else cout<<"NO"<<"\n";
+    }
+}

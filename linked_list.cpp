@@ -11,16 +11,11 @@ class Node {
     Node* next;
 };
 
-// void push(Node** headRef, int data){
-//     Node* newNode = new Node();
-//     newNode->data = data;
-//     newNode->next = *headRef;
-//     *headRef = newNode;
-// }
 int main(){
     Node* first = new Node();
     Node* second = new Node();
     Node* third = new Node();
+    Node* head = first;
     // above code declares three nodes - objects of the linkedlist
     first->data = 2; // assigns data to first node
     first->next = second; // assigns next pointer to first node [first->second]
@@ -33,19 +28,10 @@ int main(){
     // by now the linkedlist has been created
 
     // to traverse a linkedlist, it is sufficient to know the details of the head node of the linkedlist
-    while(first != null){
-        cout<<first->data<<" ";
-        first = first->next;
+    while(head != null){
+        cout<<head->data<<" ";
+        head = head->next;
     }
     cout<<"\n";
-
-    // adding a new node to the start of the linkedlist
-    Node* newHead = new Node();
-    newHead->data = 4;
-    newHead->next = first;
-    first = newHead;
-
-    // Testing git here
-
 
 }
