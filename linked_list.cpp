@@ -15,7 +15,8 @@ int main(){
     Node* first = new Node();
     Node* second = new Node();
     Node* third = new Node();
-    Node* head = first;
+    Node* newNode = new Node(); // Initializing a new Node
+    Node* head = newNode;
     // above code declares three nodes - objects of the linkedlist
     first->data = 2; // assigns data to first node
     first->next = second; // assigns next pointer to first node [first->second]
@@ -26,6 +27,9 @@ int main(){
     third->data = 3;
     third->next = null;
     // by now the linkedlist has been created
+    newNode->data = 5;
+    newNode->next = first;
+    //first = newNode;
 
     // to traverse a linkedlist, it is sufficient to know the details of the head node of the linkedlist
     while(head != null){
