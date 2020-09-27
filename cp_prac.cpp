@@ -13113,3 +13113,41 @@
 //     }
 // } 
 
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int t, n; cin>>t;
+//     while(t--){
+//         cin>>n;
+//         int a[n], sum = 0;
+//         for(int i=0; i<n; i++){
+//             cin>>a[i];
+//             sum += a[i];
+//         }
+//         if(sum < 0) cout<<"NO"<<"\n";
+//         else cout<<"YES"<<"\n";
+//     }
+// } a/c - codechef sept lunchtime div 2 prblm 1
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int t, n; cin>>t;
+//     while(t--){
+//         cin>>n;
+//         int a[n], fg = 0;
+//         for(int i=0; i<n; i++){
+//             cin>>a[i];
+//             if((i+1)%a[i] != 0) fg = 1;
+//         }
+//         if(fg == 0) cout<<"YES"<<"\n";
+//         else cout<<"NO"<<"\n";
+//     }
+// } a/c - codechef sept lunchtime div 2 prblm 2
+
