@@ -13035,24 +13035,81 @@
 //     for(int i=0; i<k; i++) cout<<a[i]<<" ";
 // } a/c
 
-// Aditya @ydasc815
-#include<bits/stdc++.h>
-#define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
-using namespace std;
-int main(){
-    FastIO
-    int t; cin>>t;
-    while(t--){
-        string s, st = ""; getline(cin, s, '\n');
-        transform(s.begin(), s.end(), s.begin(), ::tolower);
-        for(int i=0; i<s.length(); i++){
-            if((s[i] >= 97 && s[i] <= 122) || (s[i] >= 48 && s[i] <= 57)) {
-                st.append(s.substr(i, 1));
-            }
-        }
-        string str = st;
-        reverse(str.begin(), str.end());
-        if(st == str) cout<<"YES"<<"\n";
-        else cout<<"NO"<<"\n";
-    }
-}
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int t; cin>>t;
+//     while(t--){
+//         string s, st = ""; getline(cin, s, '\n');
+//         transform(s.begin(), s.end(), s.begin(), ::tolower);
+//         for(int i=0; i<s.length(); i++){
+//             if((s[i] >= 97 && s[i] <= 122) || (s[i] >= 48 && s[i] <= 57)) {
+//                 st.append(s.substr(i, 1));
+//             }
+//         }
+//         string str = st;
+//         reverse(str.begin(), str.end());
+//         if(st == str) cout<<"YES"<<"\n";
+//         else cout<<"NO"<<"\n";
+//     }
+// } pending solution non-ac
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// using namespace std;
+// bool isPrime(int n){
+//    if(n == 1) return 0;
+//    int fg = 0;
+//    for(int i=2; i<=sqrt(n); i++){
+//       if(n%i == 0){
+//          fg = 1;
+//          break;
+//       }
+//    }
+//    return fg == 1 ? 0 : 1;
+// }
+// int main(){
+//    int n; string s, a = "", b = ""; cin>>n>>s;
+//    for(int i=0; i<s.length(); i++){
+//       if(isPrime(s[i])) a.append(s.substr(i, 1));
+//       else b.append(s.substr(i, 1));
+//    }
+//    sort(a.begin(), a.end());
+//    sort(b.begin(), b.end());
+//    reverse(b.begin(), b.end());
+//    cout<<a<<b;
+// } a/c
+
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define mod 1000000007
+// using ll = unsigned long long;
+// using namespace std;
+// ll modExp(ll a, ll b){
+//     if(b == 0) return 1;
+//     if(b == 1) return a;
+//     else{
+//         ll res = modExp(a, b/2)%mod;
+//         if(b%2 == 0) return (res%mod * res%mod)%mod;
+//         else return (res%mod * res%mod * a)%mod;
+//     }
+// }
+// int main(){
+//     ll t, a, b, n; cin>>t;
+//     while(t--){
+//         cin>>a>>b>>n;
+//         if(n%2 == 0){
+//             ll x = modExp(2, (n/2) - 1);
+//             cout<<(x*(b-a))%mod<<" "<<(x*(b+a))%mod<<"\n";
+//         } else {
+//             n++;
+//             ll x = modExp(2, (n/2) - 1);
+//             cout<<(x*a)%mod<<" "<<(x*b)%mod<<"\n";
+//         }
+//     }
+// } 
+
