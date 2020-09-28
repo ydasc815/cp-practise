@@ -1581,7 +1581,7 @@
 //         cout<<out[i]<<"\n";
 //     }
 //     return 0;
-// } some test cases don't pass, alternative solution given below using strings:
+// } some test cases don't pass, amxernative solution given below using strings:
 // #include <bits/stdc++.h>
 
 // using namespace std;
@@ -1959,13 +1959,13 @@
 //     return b ? gcd(b, a%b) : a;
 // }
 // int gcd_arr(int arr[], int size){
-//     int result = arr[0];
+//     int resumx = arr[0];
 //     for(int i=1; i<size; i++){
-//         result = gcd(arr[i], result); // finds gcd of array, recursively
-//         if(result == 1)
+//         resumx = gcd(arr[i], resumx); // finds gcd of array, recursively
+//         if(resumx == 1)
 //             return 1;
 //     }
-//     return result;
+//     return resumx;
 // }
 // int main(){
 //     int T, arr[100], out[100][100];
@@ -2433,7 +2433,7 @@
 //             max_freq = rec[i][1];
 //             num = rec[i][0];
 //     }
-//     // check for multiple freq occurences
+//     // check for mumxiple freq occurences
 //     int min_num_freq = num;
 //     for(int i=0; i<ind_cnt; i++){
 //         if(rec[i][1] == max_freq){
@@ -4702,7 +4702,7 @@
 //         }
 //         cout<<endl;
 //     }
-// } leave... dynamic programming problem. this naive approach results in tle
+// } leave... dynamic programming problem. this naive approach resumxs in tle
 
 // #include<bits/stdc++.h>
 // using namespace std;
@@ -4777,13 +4777,13 @@
 //     }
 // }
 // ll gcd_arr(ll arr[], ll size){
-//     ll result = arr[0];
+//     ll resumx = arr[0];
 //     for(ll i=1; i<size; i++){
-//         result = __gcd(arr[i], result);
-//         if(result == 1)
+//         resumx = __gcd(arr[i], resumx);
+//         if(resumx == 1)
 //             return 1;
 //     }
-//     return result;
+//     return resumx;
 // }
 // int main(){
 //     ll n; cin>>n;
@@ -9463,11 +9463,11 @@
 //         cin>>x;
 //         s.insert(x);
 //     }
-//     ll lt = 0;
+//     ll mx = 0;
 //     for(auto i : s){
 //         if(k == 0) break;
-//         cout<<i - lt<<"\n";
-//         lt = i;
+//         cout<<i - mx<<"\n";
+//         mx = i;
 //         k--;
 //     }
 //     if(k > 0) while(k--) cout<<0<<"\n";
@@ -13177,3 +13177,96 @@
 //         else cout<<"NO"<<"\n";
 //     }
 // }
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int t, n; cin>>t;
+//     while(t--){
+//         cin>>n;
+//         int a[n];
+//         for(int i=0; i<n; i++) cin>>a[i];
+//         if(n%2 == 0){
+//             for(int i=0; i<n; i+=2){
+//                 cout<<a[i+1]<<" "<<a[i]<<" ";
+//             }
+//         } else{
+//             for(int i=0; i<n-1; i+=2){
+//                 cout<<a[i+1]<<" "<<a[i]<<" ";
+//             }
+//             cout<<a[n-1]<<" ";
+//         }
+//         cout<<"\n";
+//     }
+// } a/c
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int t, m, n, x; cin>>t;
+//     while(t--){
+//         cin>>m>>n; int fg = 0;
+//         map<int, int> a, b;
+//         for(int i=0; i<m; i++){
+//             cin>>x;
+//             a[x]++;
+//         }
+//         for(int i=0; i<n; i++){
+//             cin>>x;
+//             b[x]++;
+//         }
+//         for(auto i=b.begin(); i!=b.end(); i++){
+//             if(a[i->first] < i->second) {
+//                 fg = 1;
+//                 break;
+//             }
+//         }
+//         if(fg == 0) cout<<"Yes"<<"\n";
+//         else cout<<"No"<<"\n";
+//     }
+// } a/c
+
+
+// // Aditya @ydasc815
+// #include <iostream> 
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std; 
+// void heapify(int a[], int n, int i) { 
+// 	int mx = i; 
+// 	int l = (2*i) + 1;
+// 	int r = (2*i) + 2;
+// 	if (l < n && a[l] > a[mx]) 
+// 		mx = l; 
+// 	if (r < n && a[r] > a[mx]) 
+// 		mx = r; 
+// 	if (mx != i) { 
+// 		swap(a[i], a[mx]); 
+// 		heapify(a, n, mx); 
+// 	} 
+// } 
+
+// int main(){ 
+//     FastIO
+//     int n; cin>>n;
+//     int a[n], fg = 0;
+//     if(n == 0) fg = 1;
+//     for(int i=0; i<n; i++){
+//         cin>>a[i];
+//         if(a[i] <= 0) fg = 1;
+//     }
+//     if(fg == 0){
+//         int k = (n/2) - 1;
+//         for(int i=k; i>=0; i--){
+//             heapify(a, n, i);
+//         }
+//         for(int i=0; i<n; i++) cout<<a[i]<<" ";
+//     } else cout<<-1;
+// } // solution to daa lab 28-09-2020
+
+
