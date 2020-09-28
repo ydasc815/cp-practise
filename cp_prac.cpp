@@ -13151,3 +13151,29 @@
 //     }
 // } a/c - codechef sept lunchtime div 2 prblm 2
 
+// Aditya @ydasc815
+// this problem implements a new concept* : using getline throughout to input long space seperated strings PER TEST CASE
+// using cin with getline does not work and getline gets skipped while inputting the string
+// therefore we use getline only to input the test case value as a string then parse it to int and then then we input strings
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     string in; getline(cin, in);
+//     stringstream linestream(in); 
+//     int t; linestream>>t;
+//     while(t--){
+//         string s, st = ""; getline(cin, s);
+//         transform(s.begin(), s.end(), s.begin(), ::tolower);
+//         for(int i=0; i<s.length(); i++){
+//             if((s[i] >= 97 && s[i] <= 122) || (s[i] >= 48 && s[i] <= 57)) {
+//                 st.append(s.substr(i, 1));
+//             }
+//         }
+//         string str = st;
+//         reverse(str.begin(), str.end());
+//         if(st == str) cout<<"YES"<<"\n";
+//         else cout<<"NO"<<"\n";
+//     }
+// }
