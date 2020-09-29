@@ -13269,4 +13269,11 @@
 //     } else cout<<-1;
 // } // solution to daa lab 28-09-2020
 
-
+// Aditya @ydasc815
+#include<bits/stdc++.h>
+#define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+using namespace std;
+int main(){
+    FastIO
+    // only design work today
+}
