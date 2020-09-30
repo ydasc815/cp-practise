@@ -13269,11 +13269,30 @@
 //     } else cout<<-1;
 // } // solution to daa lab 28-09-2020
 
-// Aditya @ydasc815
-#include<bits/stdc++.h>
-#define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
-using namespace std;
-int main(){
-    FastIO
-    // only design work today
-}
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int t, n; cin>>t;
+//     while(t--){
+//         cin>>n;
+//         string s; vector<int> v;
+//         for(int i=0; i<n; i++){
+//             cin>>s;
+//             int fg = 0;
+//             for(int j=0; j<s.length(); j++){
+//                 if(s[j] != '1' && s[j] != '2' && s[j] != '3'){
+//                     fg = 1;
+//                     break;
+//                 }
+//             }
+//             if(fg == 0) v.push_back(stoi(s));
+//         }
+//         sort(v.begin(), v.end());
+//         if(v.size() == 0) cout<<-1;
+//         else for(int i=0; i<v.size(); i++) cout<<v[i]<<" ";
+//         cout<<"\n";
+//     }    
+// } a/c - gfg problem
