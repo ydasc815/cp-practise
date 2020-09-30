@@ -13296,3 +13296,30 @@
 //         cout<<"\n";
 //     }    
 // } a/c - gfg problem
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int t, n; cin>>t;
+//     while(t--){
+//         cin>>n;
+//         int a[n], fg = 0; map<int, int> m;
+//         for(int i=0; i<n; i++){
+//             cin>>a[i];
+//             m[a[i]]++;
+//         }
+//         for(int i=0; i<n; i++){
+//             if(m[a[i]] > 1){
+//                 cout<<i+1<<"\n";
+//                 fg = 1;
+//                 break;
+//             }
+//         }
+//         if(fg == 0) cout<<-1<<"\n";
+//     }
+// } a/c
+
+
