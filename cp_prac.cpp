@@ -13364,24 +13364,24 @@
 //     }
 // }
 
-// Aditya @ydasc815
-#include<bits/stdc++.h>
-#define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
-using ll = unsigned long long;
-using namespace std;
-int main(){
-    FastIO
-    ll t, a, b;
-    cin>>t;
-    vector<ll> sq;
-    for(ll i=1; i<=sqrt(1e9); i++) if(sqrt(i)*sqrt(i) == i) sq.push_back(i);
-    while(t--){
-        cin>>a>>b;
-        ll x = 0, y = 0;
-        if(sqrt(a)*sqrt(a) == a) x = lower_bound(sq.begin(), sq.end(), a) - sq.begin();
-        else x = upper_bound(sq.begin(), sq.end(), a) - sq.begin();
-        if(sqrt(b)*sqrt(b) == b) y = lower_bound(sq.begin(), sq.end(), b) - sq.begin() + 1;
-        else y = lower_bound(sq.begin(), sq.end(), b) - sq.begin();
-        cout<<y<<"\n";
-    }
-}
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using ll = unsigned long long;
+// using namespace std;
+// int main(){
+//     FastIO
+//     ll t, a, b;
+//     cin>>t;
+//     vector<ll> sq;
+//     for(ll i=1; i<=sqrt(1e9); i++) if(sqrt(i)*sqrt(i) == i) sq.push_back(i);
+//     while(t--){
+//         cin>>a>>b;
+//         ll x = 0, y = 0;
+//         if(sqrt(a)*sqrt(a) == a) x = lower_bound(sq.begin(), sq.end(), a) - sq.begin();
+//         else x = upper_bound(sq.begin(), sq.end(), a) - sq.begin();
+//         if(sqrt(b)*sqrt(b) == b) y = lower_bound(sq.begin(), sq.end(), b) - sq.begin() + 1;
+//         else y = lower_bound(sq.begin(), sq.end(), b) - sq.begin();
+//         cout<<y<<"\n";
+//     }
+// }
