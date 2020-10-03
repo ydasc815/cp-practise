@@ -13409,42 +13409,8 @@
 // Aditya @ydasc815
 #include<bits/stdc++.h>
 #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
-#define null NULL
 using namespace std;
-struct Node{
-    int data;
-    struct Node* left, *right;
-    Node(int data){
-        this->data = data;
-        left = null;
-        right = null;
-    }
-};
-
-void post_order(struct Node* node){
-    if(node == null) return;
-    post_order(node->left);
-    post_order(node->right);
-    cout<<node->data<<" ";
-}
-
-void in_order(struct Node* node){
-    if(node == null) return;
-    in_order(node->left);
-    cout<<node->data<<" ";
-    in_order(node->right);
-}
-
-void pre_order(struct Node* node){
-    if(node == null) return;
-    cout<<node->data<<" ";
-    pre_order(node->left);
-    pre_order(node->right);
-}
 int main(){
     FastIO
-    
+    // testing git past commit #1
 }
-
-
-
