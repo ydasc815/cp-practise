@@ -13325,48 +13325,6 @@
 // // Aditya @ydasc815
 // #include<bits/stdc++.h>
 // #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
-// using namespace std;
-// int main(){
-//     FastIO
-//     int t, m, n;
-//     cin>>t;
-//     while(t--){
-//         cin>>m>>n;
-//         int a[m][n], sp[m][n];
-//         for(int i=0; i<m; i++){
-//             for(int j=0; j<n; j++){
-//                 cin>>a[i][j];
-//                 sp[i][j] = 0;
-//             }
-//         }
-//         int ilr = 0, jtb = m-1, irl = m-1, jbt = 0;
-//         while(1){
-//             if(ilr < m) for(int i=0; i<n; i++) if(sp[ilr][i] == 0){
-//                 cout<<a[ilr][i]<<" ";
-//                 sp[ilr][i] = 1;
-//             }
-//             if(jtb >= 0) for(int i=0; i<n; i++) if(sp[i][jtb] == 0){
-//                 cout<<a[i][jtb]<<" ";
-//                 sp[i][jtb] = 1;
-//             }
-//             if(irl >= 0) for(int i=n-1; i>=0; i--) if(sp[irl][i] == 0){
-//                 cout<<a[irl][i]<<" ";
-//                 sp[irl][i] = 1;
-//             }
-//             if(jbt < m) for(int i=n-1; i>=0; i--) if(sp[i][jbt] == 0){
-//                 cout<<a[i][jbt]<<" "; 
-//                 sp[i][jbt] = 1;
-//             }
-//             ilr++, jtb--, irl--, jbt++;
-//             if(ilr == m && jtb == -1 && irl == -1 && jbt == m) break;
-//         }
-//         cout<<"\n";
-//     }
-// }
-
-// // Aditya @ydasc815
-// #include<bits/stdc++.h>
-// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
 // using ll = long long;
 // using namespace std;
 // int main(){
@@ -13406,11 +13364,77 @@
 //     }
 // } madarchod panti ki bhi hadd hoti hai 
 
-// Aditya @ydasc815
-#include<bits/stdc++.h>
-#define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
-using namespace std;
-int main(){
-    FastIO
-    
-}
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int t, m, n;
+//     cin>>t;
+//     while(t--){
+//         cin>>m>>n;
+//         int a[m][n], sp[m][n];
+//         for(int i=0; i<m; i++){
+//             for(int j=0; j<n; j++){
+//                 cin>>a[i][j];
+//                 sp[i][j] = 0;
+//             }
+//         }
+//         int ilr = 0, jtb = n-1, irl = m-1, jbt = 0;
+//         while(1){
+//             if(ilr < m) for(int i=0; i<n; i++) if(sp[ilr][i] == 0){
+//                 cout<<a[ilr][i]<<" ";
+//                 sp[ilr][i] = 1;
+//             }
+//             if(jtb >= 0) for(int i=0; i<m; i++) if(sp[i][jtb] == 0){
+//                 cout<<a[i][jtb]<<" ";
+//                 sp[i][jtb] = 1;
+//             }
+//             if(irl >= 0) for(int i=n-1; i>=0; i--) if(sp[irl][i] == 0){
+//                 cout<<a[irl][i]<<" ";
+//                 sp[irl][i] = 1;
+//             }
+//             if(jbt < n) for(int i=m-1; i>=0; i--) if(sp[i][jbt] == 0){
+//                 cout<<a[i][jbt]<<" "; 
+//                 sp[i][jbt] = 1;
+//             }
+//             ilr++, jtb--, irl--, jbt++;
+//             if(ilr == m && jtb == -1 && irl == -1 && jbt == n) break;
+//         }
+//         cout<<"\n";
+//     }
+// } not working
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int t, n, x; cin>>t;
+//     while(t--){
+//         cin>>n>>x;
+//         int a[n], fg = 0;
+//         for(int i=0; i<n; i++) cin>>a[i];
+//         sort(a, a+n);
+//         for(int i=0; i<n; i++){
+//             int j=0, k=n-1;
+//             if(j == i) j++;
+//             if(k == i) k--;
+//             while(j < k){
+//                 if(j == i) j++;
+//                 if(k == i) k--;
+//                 if(a[j] + a[k] < x - a[i]) j++;
+//                 else if(a[j] + a[k] > x - a[i]) k--;
+//                 else{
+//                     fg = 1;
+//                     break;
+//                 }
+//             }
+//             if(fg == 1) break;
+//         }
+//         cout<<fg<<"\n";
+//     }
+// } a/c
+
