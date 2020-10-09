@@ -13438,3 +13438,34 @@
 //     }
 // } a/c
 
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int t, n, x; cin>>t;
+//     while(t--){
+//         cin>>n;
+//         int a[n], fg = 0;
+//         for(int i=0; i<n; i++) cin>>a[i];
+//         cin>>x;
+//         for(int i=0; i<n; i++){
+//             for(int j=i+1; j<n; j++){
+//                 for(int k=j+1; k<n; k++){
+//                     for(int l=k+1; l<n; l++){
+//                         if(a[i] + a[j] + a[k] + a[l] == x){
+//                             fg = 1;
+//                             break;
+//                         }
+//                     }
+//                     if(fg == 1) break;
+//                 }
+//                 if(fg == 1) break;
+//             }
+//             if(fg == 1) break;
+//         }
+//         cout<<fg<<"\n";
+//     }
+// } a/c -_- pta nhi kaise accept hogya || complexity approaches ~O(n^5)
+
