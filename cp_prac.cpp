@@ -13469,3 +13469,22 @@
 //     }
 // } a/c -_- pta nhi kaise accept hogya || complexity approaches ~O(n^5)
 
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int t, n; cin>>t;
+//     while(t--){
+//         cin>>n;
+//         int a[n], x = -1;
+//         for(int i=0; i<n; i++) cin>>a[i];
+//         for(int i=0; i<n; i++){
+//             for(int j=i+1; j<n; j++){
+//                 if(a[j] > a[i]) x = max(x, a[j] - a[i]);
+//             }
+//         }
+//         cout<<x<<"\n";
+//     }
+// } tle - ~O(n^3) solution for gfg - max diff
