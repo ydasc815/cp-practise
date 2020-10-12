@@ -13488,3 +13488,66 @@
 //         cout<<x<<"\n";
 //     }
 // } tle - ~O(n^3) solution for gfg - max diff
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int t, n; cin>>t;
+//     while(t--){
+//         cin>>n;
+//         int a[n], x = -1;
+//         map<int, int> m;
+//         for(int i=0; i<n; i++){
+//             cin>>a[i];
+//             m[a[i]] = i;
+//         }
+//         sort(a, a+n);
+//         for(int i=0; i<n; i++){
+//             for(int j=n-1; j>i; j--){
+//                 if(m[a[i]] < m[a[j]]){
+//                     x = max(x, a[j] - a[i]);
+//                 }
+//             }
+//         }
+//         cout<<x<<"\n";
+//     }
+// } 
+
+// // Aditya @ydasc815
+// #include<iostream>
+// #include<vector>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int n, x, in;
+//     cin>>n; vector<int> v;
+//     for(int i=0; i<n; i++){
+//         cin>>in;
+//         if(in >= 0){
+//             v.push_back(in);
+//             cout<<1<<" ";
+//         } else cout<<-1<<" ";
+//     } cout<<"\n";
+//     cin>>x; int fg = 0;
+//     for(int i=v.size()-1; i>=0; i--){
+//         if(v[i] == x){
+//             cout<<v[i]<<"\n";
+//             fg = 1;
+//             v[i] = -1;
+//             break;
+//         }
+//     }
+//     if(fg == 0) cout<<-1<<"\n";
+//     fg = 0;
+//     for(int i=v.size()-1; i>=0; i--){
+//         if(v[i] >= 0) {
+//             fg = 1;
+//             cout<<v[i]<<" ";
+//         }
+//     }
+//     if(fg == 0) cout<<-1<<" ";
+// } 
