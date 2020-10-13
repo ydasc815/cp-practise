@@ -13551,3 +13551,26 @@
 //     }
 //     if(fg == 0) cout<<-1<<" ";
 // } 
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int t, n, a, b; cin>>t;
+//     while(t--){
+//         cin>>n>>a>>b;
+//         for(int i=0; i<n; i++) cout<<(char)((i+97)%b + 97);
+//         cout<<"\n";
+//     }
+// } a/c
+
+// Aditya @ydasc815
+#include<bits/stdc++.h>
+#define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+using namespace std;
+int main(){
+    FastIO
+    
+}
