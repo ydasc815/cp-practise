@@ -13566,11 +13566,26 @@
 //     }
 // } a/c
 
-// Aditya @ydasc815
-#include<bits/stdc++.h>
-#define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
-using namespace std;
-int main(){
-    FastIO
-    
-}
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     // performing a sort of array of 0s, 1s and 2s without using any sorting algorithm
+//     int t, n, x; cin>>t;
+//     while(t--){
+//         cin>>n;
+//         int v0 = 0, v1 = 0, v2 = 0;
+//         for(int i=0; i<n; i++){
+//             cin>>x;
+//             if(x == 0) v0++;
+//             else if(x == 1) v1++;
+//             else v2++;
+//         }
+//         for(int i=0; i<v0; i++) cout<<0<<" ";
+//         for(int i=0; i<v1; i++) cout<<1<<" ";
+//         for(int i=0; i<v2; i++) cout<<2<<" ";
+//         cout<<"\n";
+//     }
+// } a/c
