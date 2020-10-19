@@ -13589,3 +13589,23 @@
 //         cout<<"\n";
 //     }
 // } a/c
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using ll = unsigned long long;
+// using namespace std;
+// int main(){
+//     FastIO
+//     ll t, n; cin>>t;
+//     while(t--){
+//         cin>>n;
+//         for(int i=2; i<=29; i++){
+//             if(n%(ll)(pow(2, i) - 1) == 0) {
+//                 ll x = n/(pow(2, i) - 1);
+//                 cout<<x<<"\n";
+//                 break;
+//             }
+//         }
+//     }
+// }
