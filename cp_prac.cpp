@@ -13609,3 +13609,31 @@
 //         }
 //     }
 // }
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int t, n; cin>>t;
+//     while(t--){
+//         cin>>n; int ans = 0, a[n], mx[n] = {0}, mn[n] = {0}, x, y;
+//         for(int i=0; i<n; i++) cin>>a[i];
+//         x = a[0], y = a[n-1];
+//         for(int i=0; i<n; i++){
+//             if(a[i] < x) x = a[i];
+//             mn[i] = x;
+//         }
+//         for(int i=n-1; i>=0; i--){
+//             if(a[i] > y) y = a[i];
+//             mx[i] = y;
+//         }
+//         for(int i=0; i<n; i++){
+//             if(mx[i] - mn[i] > ans) ans = mx[i] - mn[i];
+//         }
+//         if(ans == 0) cout<<-1<<"\n";
+//         else cout<<ans<<"\n";
+//     }
+// } a/c
+
