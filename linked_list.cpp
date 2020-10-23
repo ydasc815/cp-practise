@@ -212,6 +212,15 @@ void deleteFromStart(Node** head){
         *head = temp;
     }
 }
+void deleteFromEnd(Node* head){
+    if(head == null) cout<<"List is empty, can't delete !";
+    else{
+        Node* temp = new Node();
+        temp = head;
+        while(temp->next->next != null) temp = temp->next;
+        temp->next = null;
+    }
+}
 int main(){
     Node* head = new Node();
     head->data = 1;
@@ -222,6 +231,15 @@ int main(){
     deleteFromStart(&head);
     // traversal
     Node* temp = new Node();
+    temp = head;
+    while(temp != null){
+        cout<<temp->data<<" ";
+        temp = temp->next;
+    }
+    cout<<"\n";
+    deleteFromEnd(head);
+    deleteFromEnd(head);
+    deleteFromEnd(head);
     temp = head;
     while(temp != null){
         cout<<temp->data<<" ";
