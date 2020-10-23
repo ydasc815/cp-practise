@@ -95,6 +95,15 @@ void push(Node** head, int data){
     newHead->next = *head;
     *head = newHead;
 }
+void pushAtEnd(Node* head, int data){
+    Node* temp = new Node();
+    Node* newNode = new Node();
+    temp = head;
+    while(temp->next != null) temp = temp->next;
+    newNode->data = data;
+    newNode->next = null;
+    temp->next = newNode;
+}
 int main(){
     Node* head = new Node();
     head->data = 2;
@@ -103,6 +112,11 @@ int main(){
     push(&head, 4);
     push(&head, 5);
     // complexity of each insertion operation is O(1)
+    pushAtEnd(head, 10);
+    pushAtEnd(head, 11);
+    pushAtEnd(head, 12);
+    pushAtEnd(head, 13);
+    // complexity of each such operation (insertion at end) is again O(1)
     // traversal
     Node* temp = new Node();
     temp = head;
