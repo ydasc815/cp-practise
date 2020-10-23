@@ -126,9 +126,66 @@
 //     }
 // }
 
-// Practise -> Create a singly linkedlist of first 10 natural numbers, then
-// 1. insert number "51" after number "6"
-// 2. print all odd numbers from the linked list.
+// // Practise -> Create a singly linkedlist of first 10 natural numbers, then
+// // 1. insert number "51" after number "6"
+// // 2. print all odd numbers from the linked list.
+// #include<bits/stdc++.h>
+// #define null NULL
+// using namespace std;
+// class Node{
+//     public:
+//     int data;
+//     Node* next;
+// };
+// void pushAtEnd(Node* head, int data){
+//     Node* temp = new Node();
+//     Node* newNode = new Node();
+//     temp = head;
+//     while(temp->next != null) temp = temp->next;
+//     newNode->data = data;
+//     newNode->next = null;
+//     temp->next = newNode;
+// }
+// void pushAfterNode(Node* pNode, int data){
+//     Node* newNode = new Node();
+//     newNode->data = data;
+//     newNode->next = pNode->next;
+//     pNode->next = newNode;
+// }
+// int main(){
+//     Node* head = new Node();
+//     head->data = 1;
+//     head->next = null;
+//     for(int i=2; i<=10; i++) pushAtEnd(head, i);
+//     Node* temp = new Node();
+//     temp = head;
+//     while(temp != null){
+//         cout<<temp->data<<" ";
+//         temp = temp->next;
+//     }
+//     cout<<"\n";
+//     // inserting "51" after 6
+//     temp = head;
+//     while(temp->data != 6 && temp != null) temp = temp->next;
+//     if(temp->data != 6) cout<<"Element does not exist"<<"\n";
+//     else{
+//         pushAfterNode(temp, 51);
+//     }
+//     temp = head;
+//     while(temp != null){
+//         cout<<temp->data<<" ";
+//         temp = temp->next;
+//     }
+//     cout<<"\n";
+//     // printing all odd numbers from the linked list
+//     temp = head;
+//     while(temp != null){
+//         if(temp->data % 2 != 0) cout<<temp->data<<" ";
+//         temp = temp->next;
+//     }
+// }
+
+// Practise -> Delete nodes from the linkedlist
 #include<bits/stdc++.h>
 #define null NULL
 using namespace std;
@@ -146,41 +203,29 @@ void pushAtEnd(Node* head, int data){
     newNode->next = null;
     temp->next = newNode;
 }
-void pushAfterNode(Node* pNode, int data){
-    Node* newNode = new Node();
-    newNode->data = data;
-    newNode->next = pNode->next;
-    pNode->next = newNode;
+void deleteFromStart(Node** head){
+    if(head == null) cout<<"List is empty, can't delete !";
+    else{
+        Node* temp = new Node();
+        temp = *head;
+        temp = temp->next;
+        *head = temp;
+    }
 }
 int main(){
     Node* head = new Node();
     head->data = 1;
     head->next = null;
     for(int i=2; i<=10; i++) pushAtEnd(head, i);
+    // delete node from start
+    deleteFromStart(&head);
+    deleteFromStart(&head);
+    // traversal
     Node* temp = new Node();
     temp = head;
     while(temp != null){
         cout<<temp->data<<" ";
         temp = temp->next;
     }
-    cout<<"\n";
-    // inserting "51" after 6
-    temp = head;
-    while(temp->data != 6 && temp != null) temp = temp->next;
-    if(temp->data != 6) cout<<"Element does not exist"<<"\n";
-    else{
-        pushAfterNode(temp, 51);
-    }
-    temp = head;
-    while(temp != null){
-        cout<<temp->data<<" ";
-        temp = temp->next;
-    }
-    cout<<"\n";
-    // printing all odd numbers from the linked list
-    temp = head;
-    while(temp != null){
-        if(temp->data % 2 != 0) cout<<temp->data<<" ";
-        temp = temp->next;
-    }
 }
+
