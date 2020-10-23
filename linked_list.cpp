@@ -128,7 +128,7 @@
 
 // Practise -> Create a singly linkedlist of first 10 natural numbers, then
 // 1. insert number "51" after number "6"
-// 2. print all even numbers for the linked list.
+// 2. print all odd numbers from the linked list.
 #include<bits/stdc++.h>
 #define null NULL
 using namespace std;
@@ -177,4 +177,10 @@ int main(){
         temp = temp->next;
     }
     cout<<"\n";
+    // printing all odd numbers from the linked list
+    temp = head;
+    while(temp != null){
+        if(temp->data % 2 != 0) cout<<temp->data<<" ";
+        temp = temp->next;
+    }
 }
