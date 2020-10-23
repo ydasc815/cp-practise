@@ -116,7 +116,7 @@ int main(){
     pushAtEnd(head, 11);
     pushAtEnd(head, 12);
     pushAtEnd(head, 13);
-    // complexity of each such operation (insertion at end) is again O(1)
+    // complexity of each such operation (insertion at end) is again O(n) [n = number of nodes]
     // traversal
     Node* temp = new Node();
     temp = head;
