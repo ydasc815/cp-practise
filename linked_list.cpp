@@ -102,6 +102,7 @@ int main(){
     push(&head, 3);
     push(&head, 4);
     push(&head, 5);
+    // complexity of each insertion operation is O(1)
     // traversal
     Node* temp = new Node();
     temp = head;
@@ -109,5 +110,4 @@ int main(){
         cout<<temp->data<<" ";
         temp = temp->next;
     }
-
 }
