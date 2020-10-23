@@ -80,3 +80,34 @@
 // }
 
 // LL @gfg
+
+#include<bits/stdc++.h>
+#define null NULL
+using namespace std;
+class Node{
+    public:
+    int data;
+    Node* next;
+};
+void push(Node** head, int data){
+    Node* newHead = new Node();
+    newHead->data = data;
+    newHead->next = *head;
+    *head = newHead;
+}
+int main(){
+    Node* head = new Node();
+    head->data = 2;
+    head->next = null;
+    push(&head, 3);
+    push(&head, 4);
+    push(&head, 5);
+    // traversal
+    Node* temp = new Node();
+    temp = head;
+    while(temp != null){
+        cout<<temp->data<<" ";
+        temp = temp->next;
+    }
+
+}
