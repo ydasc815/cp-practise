@@ -81,6 +81,54 @@
 
 // LL @gfg
 
+// #include<bits/stdc++.h>
+// #define null NULL
+// using namespace std;
+// class Node{
+//     public:
+//     int data;
+//     Node* next;
+// };
+// void push(Node** head, int data){
+//     Node* newHead = new Node();
+//     newHead->data = data;
+//     newHead->next = *head;
+//     *head = newHead;
+// }
+// void pushAtEnd(Node* head, int data){
+//     Node* temp = new Node();
+//     Node* newNode = new Node();
+//     temp = head;
+//     while(temp->next != null) temp = temp->next;
+//     newNode->data = data;
+//     newNode->next = null;
+//     temp->next = newNode;
+// }
+// int main(){
+//     Node* head = new Node();
+//     head->data = 2;
+//     head->next = null;
+//     push(&head, 3);
+//     push(&head, 4);
+//     push(&head, 5);
+//     // complexity of each insertion operation is O(1)
+//     pushAtEnd(head, 10);
+//     pushAtEnd(head, 11);
+//     pushAtEnd(head, 12);
+//     pushAtEnd(head, 13);
+//     // complexity of each such operation (insertion at end) is again O(n) [n = number of nodes]
+//     // traversal
+//     Node* temp = new Node();
+//     temp = head;
+//     while(temp != null){
+//         cout<<temp->data<<" ";
+//         temp = temp->next;
+//     }
+// }
+
+// Practise -> Create a singly linkedlist of first 10 natural numbers, then
+// 1. insert number "51" after number "6"
+// 2. print all even numbers for the linked list.
 #include<bits/stdc++.h>
 #define null NULL
 using namespace std;
@@ -89,12 +137,6 @@ class Node{
     int data;
     Node* next;
 };
-void push(Node** head, int data){
-    Node* newHead = new Node();
-    newHead->data = data;
-    newHead->next = *head;
-    *head = newHead;
-}
 void pushAtEnd(Node* head, int data){
     Node* temp = new Node();
     Node* newNode = new Node();
@@ -104,24 +146,35 @@ void pushAtEnd(Node* head, int data){
     newNode->next = null;
     temp->next = newNode;
 }
+void pushAfterNode(Node* pNode, int data){
+    Node* newNode = new Node();
+    newNode->data = data;
+    newNode->next = pNode->next;
+    pNode->next = newNode;
+}
 int main(){
     Node* head = new Node();
-    head->data = 2;
+    head->data = 1;
     head->next = null;
-    push(&head, 3);
-    push(&head, 4);
-    push(&head, 5);
-    // complexity of each insertion operation is O(1)
-    pushAtEnd(head, 10);
-    pushAtEnd(head, 11);
-    pushAtEnd(head, 12);
-    pushAtEnd(head, 13);
-    // complexity of each such operation (insertion at end) is again O(n) [n = number of nodes]
-    // traversal
+    for(int i=2; i<=10; i++) pushAtEnd(head, i);
     Node* temp = new Node();
     temp = head;
     while(temp != null){
         cout<<temp->data<<" ";
         temp = temp->next;
     }
+    cout<<"\n";
+    // inserting "51" after 6
+    temp = head;
+    while(temp->data != 6 && temp != null) temp = temp->next;
+    if(temp->data != 6) cout<<"Element does not exist"<<"\n";
+    else{
+        pushAfterNode(temp, 51);
+    }
+    temp = head;
+    while(temp != null){
+        cout<<temp->data<<" ";
+        temp = temp->next;
+    }
+    cout<<"\n";
 }
