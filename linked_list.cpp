@@ -40,41 +40,43 @@
 
 // }
 
-// Implementing linkedlist by non repeating node definitions
-#include<bits/stdc++.h>
-#define null NULL
-using namespace std;
+// // Implementing linkedlist by non repeating node definitions
+// #include<bits/stdc++.h>
+// #define null NULL
+// using namespace std;
 
-class Node{
-    public:
-    int data;
-    Node* next;
-};
+// class Node{
+//     public:
+//     int data;
+//     Node* next;
+// };
 
-void printList(Node* head){
-    while(head != null){
-        cout<<head->data<<" ";
-        head = head->next;
-    }
-}
+// void printList(Node* head){
+//     while(head != null){
+//         cout<<head->data<<" ";
+//         head = head->next;
+//     }
+// }
 
-void addDataToFront(Node* head, int data){
-    if(head == null){
-        head = new Node();
-        head->data = data;
-        head->next = null;
-    } else{
-        Node* newNode = new Node();
-        newNode->data = data;
-        newNode->next = head;
-        head = newNode;
-    }
-}
+// void addDataToFront(Node* head, int data){
+//     if(head == null){
+//         head = new Node();
+//         head->data = data;
+//         head->next = null;
+//     } else{
+//         Node* newNode = new Node();
+//         newNode->data = data;
+//         newNode->next = head;
+//         head = newNode;
+//     }
+// }
 
-int main(){
-    Node* head;
-    addDataToFront(head, 1);
-    addDataToFront(head, 2);
-    addDataToFront(head, 3);
-    printList(head);
-}
+// int main(){
+//     Node* head;
+//     addDataToFront(head, 1);
+//     addDataToFront(head, 2);
+//     addDataToFront(head, 3);
+//     printList(head);
+// }
+
+// LL @gfg
