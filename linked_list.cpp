@@ -372,8 +372,79 @@
 //     }
 // }
 
-// Revise Concept [0.1k%] : Create a singly linked list and add some elements to the end of it (append)
-// Then delete a given key of the list, if reference to the head node of the linked list is given.
+// // Revise Concept [0.1k%] : Create a singly linked list and add some elements to the end of it (append)
+// // Then delete a given key of the list, if reference to the head node of the linked list is given.
+// #include<bits/stdc++.h>
+// #define null NULL
+// using namespace std;
+// class Node{
+//     public:
+//     int data;
+//     Node* next;
+// };
+// void pushAtEnd(Node** head, int data){
+//     Node* newNode = new Node();
+//     newNode->data = data;
+//     newNode->next = null;
+//     if(*head == null){
+//         *head = newNode;
+//         return;
+//     }
+//     Node* temp = new Node();
+//     temp = *head;
+//     while(temp->next != null) temp = temp->next;
+//     temp->next = newNode;
+// }
+// void deleteKey(Node** head, int key){
+//     if(*head == null){
+//         cout<<"List is empty"<<"\n";
+//         return;
+//     }
+//     Node* temp = new Node();
+//     Node* prev = new Node();
+//     temp = *head;
+//     if(temp->data == key){
+//         *head = temp->next;
+//         free(temp);
+//         return;
+//     }
+//     while(temp != null && temp->data != key){
+//         prev = temp;
+//         temp = temp->next;
+//     }
+//     if(temp == null){
+//         cout<<"Given key does not exist in this list"<<"\n";
+//         return;
+//     }
+//     prev->next = temp->next;
+//     free(temp);
+// }
+// int main(){
+//     Node* head = null;
+//     pushAtEnd(&head, 1);
+//     pushAtEnd(&head, -3);
+//     pushAtEnd(&head, -8);
+//     pushAtEnd(&head, 6);
+//     pushAtEnd(&head, 5);
+//     pushAtEnd(&head, 4);
+//     Node* temp = new Node();
+//     temp = head;
+//     while(temp != null){
+//         cout<<temp->data<<" ";
+//         temp = temp->next;
+//     }
+//     cout<<"\n";
+//     deleteKey(&head, 1);
+//     deleteKey(&head, 6);
+//     deleteKey(&head, 59);
+//     temp = head;
+//     while(temp != null){
+//         cout<<temp->data<<" ";
+//         temp = temp->next;
+//     }
+// }
+
+// Revise (with prev doubts resolved) : Delete a node at given position in a singly linked list
 #include<bits/stdc++.h>
 #define null NULL
 using namespace std;
@@ -395,25 +466,21 @@ void pushAtEnd(Node** head, int data){
     while(temp->next != null) temp = temp->next;
     temp->next = newNode;
 }
-void deleteKey(Node** head, int key){
-    if(*head == null){
-        cout<<"List is empty"<<"\n";
-        return;
-    }
+void deleteAtN(Node** head, int pos){
     Node* temp = new Node();
     Node* prev = new Node();
     temp = *head;
-    if(temp->data == key){
+    if(pos == 0){
         *head = temp->next;
         free(temp);
         return;
     }
-    while(temp != null && temp->data != key){
+    while(pos-- && temp != null){
         prev = temp;
         temp = temp->next;
     }
-    if(temp == null){
-        cout<<"Given key does not exist in this list"<<"\n";
+    if(pos > 0){
+        cout<<"No such position in the list"<<"\n";
         return;
     }
     prev->next = temp->next;
@@ -421,25 +488,27 @@ void deleteKey(Node** head, int key){
 }
 int main(){
     Node* head = null;
-    pushAtEnd(&head, 1);
+    pushAtEnd(&head, 2);
     pushAtEnd(&head, -3);
-    pushAtEnd(&head, -8);
-    pushAtEnd(&head, 6);
-    pushAtEnd(&head, 5);
     pushAtEnd(&head, 4);
+    pushAtEnd(&head, 5);
+    pushAtEnd(&head, 9);
+    pushAtEnd(&head, 13);
+    pushAtEnd(&head, -5);
     Node* temp = new Node();
     temp = head;
     while(temp != null){
-        cout<<temp->data<<" ";
+        cout<<temp->data<<" "; 
         temp = temp->next;
     }
     cout<<"\n";
-    deleteKey(&head, 1);
-    deleteKey(&head, 6);
-    deleteKey(&head, 59);
+    deleteAtN(&head, 0);
+    deleteAtN(&head, 3);
+    deleteAtN(&head, 2);
+    deleteAtN(&head, 13);
     temp = head;
     while(temp != null){
-        cout<<temp->data<<" ";
+        cout<<temp->data<<" "; 
         temp = temp->next;
     }
 }
