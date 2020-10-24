@@ -570,7 +570,50 @@
 //     }
 // }
 
-// Practise : Find the size of a singly linked list
+// // Practise : Find the size of a singly linked list
+// #include<bits/stdc++.h>
+// #define null NULL
+// using namespace std;
+// class Node{
+//     public:
+//     int data;
+//     Node* next;
+// };
+// void pushAtEnd(Node** head, int data){
+//     Node* newNode = new Node();
+//     newNode->data = data;
+//     newNode->next = null;
+//     if(*head == null){
+//         *head = newNode;
+//         return;
+//     }
+//     Node* temp;
+//     temp = *head;
+//     while(temp->next != null) temp = temp->next;
+//     temp->next = newNode;
+// }
+// void sizeOfList(Node* head){
+//     Node* temp = head;
+//     int count = 0;
+//     while(temp != null){
+//         count++;
+//         temp = temp->next;
+//     }
+//     cout<<count<<" ";
+// }
+// int main(){
+//     Node* head = null;
+//     pushAtEnd(&head, 2);
+//     pushAtEnd(&head, 1);
+//     pushAtEnd(&head, -1);
+//     pushAtEnd(&head, 3);
+//     pushAtEnd(&head, 4);
+//     pushAtEnd(&head, 9);
+//     pushAtEnd(&head, 6);
+//     sizeOfList(head);
+// }
+
+// Practise : Find if a given key x exists in a singly linked list
 #include<bits/stdc++.h>
 #define null NULL
 using namespace std;
@@ -592,23 +635,18 @@ void pushAtEnd(Node** head, int data){
     while(temp->next != null) temp = temp->next;
     temp->next = newNode;
 }
-void sizeOfList(Node* head){
+bool findX(Node* head, int x){
     Node* temp = head;
-    int count = 0;
-    while(temp != null){
-        count++;
-        temp = temp->next;
-    }
-    cout<<count<<" ";
+    while(temp != null && temp->data != x) temp = temp->next;
+    if(temp == null) return 0;
+    else return 1;
 }
-int main(){
+signed main(){
     Node* head = null;
     pushAtEnd(&head, 2);
-    pushAtEnd(&head, 1);
-    pushAtEnd(&head, -1);
+    pushAtEnd(&head, 8);
+    pushAtEnd(&head, 9);
     pushAtEnd(&head, 3);
     pushAtEnd(&head, 4);
-    pushAtEnd(&head, 9);
-    pushAtEnd(&head, 6);
-    sizeOfList(head);
+    cout<<findX(head, 8)<<" "<<findX(head, 10);
 }
