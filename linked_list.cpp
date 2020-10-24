@@ -412,6 +412,10 @@ void deleteKey(Node** head, int key){
         prev = temp;
         temp = temp->next;
     }
+    if(temp == null){
+        cout<<"Given key does not exist in this list"<<"\n";
+        return;
+    }
     prev->next = temp->next;
     free(temp);
 }
@@ -432,6 +436,7 @@ int main(){
     cout<<"\n";
     deleteKey(&head, 1);
     deleteKey(&head, 6);
+    deleteKey(&head, 59);
     temp = head;
     while(temp != null){
         cout<<temp->data<<" ";
