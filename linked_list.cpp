@@ -247,7 +247,94 @@
 //     }
 // }
 
-// Practise -> Delete node at given position
+// // Practise -> Delete node at given position
+// #include<bits/stdc++.h>
+// #define null NULL
+// using namespace std;
+// class Node{
+//     public:
+//     int data;
+//     Node* next;
+// };
+// void pushAtEnd(Node* head, int data){
+//     Node* temp = new Node();
+//     Node* newNode = new Node();
+//     temp = head;
+//     while(temp->next != null) temp = temp->next;
+//     newNode->data = data;
+//     newNode->next = null;
+//     temp->next = newNode;
+// }
+// void deleteAtN(Node** head, int pos){
+//     if(*head == null) cout<<"List is empty"<<"\n";
+//     else{
+//         Node* temp = new Node();
+//         Node* temp1 = new Node();
+//         temp1 = *head;
+//         temp1 = temp1->next;
+//         temp = *head;
+//         pos--;
+//         while(pos-- && temp != null){
+//             temp = temp->next;
+//             temp1 = temp1->next;
+//         }
+//         //if(pos > -1) cout<<"No element exist at pos " + pos<<"\n";
+//         temp->next = temp1->next;
+//     }
+// }
+// int main(){
+//     Node* head = new Node();
+//     head->data = 1;
+//     head->next = null;
+//     for(int i=2; i<=10; i++) pushAtEnd(head, i);
+//     deleteAtN(&head, 3);
+//     deleteAtN(&head, 1);
+//     // traversal
+//     Node* temp = new Node();
+//     temp = head;
+//     while(temp != null){
+//         cout<<temp->data<<" ";
+//         temp = temp->next;
+//     }
+// }
+
+// // Revision -> Create a singly linkedlist of 5 elements by taking input from user and print it.
+// // Follow array insertion pattern for inserting elements into the linkedlist.
+// #include<bits/stdc++.h>
+// #define null NULL
+// using namespace std;
+// class Node{
+//     public:
+//     int data;
+//     Node* next;
+// };
+// void pushAtEnd(Node* head, int data){
+//     Node* newNode = new Node();
+//     Node* temp = new Node();
+//     newNode->data = data;
+//     newNode->next = null;
+//     temp = head;
+//     while(temp->next != null) temp = temp->next;
+//     temp->next = newNode;
+// }
+// int main(){
+//     int x; 
+//     Node* head = new Node();
+//     head->data = 1;
+//     head->next = null;
+//     for(int i=0; i<4; i++){
+//         cin>>x;
+//         pushAtEnd(head, x);
+//     }
+//     // traversal
+//     Node* temp = new Node();
+//     temp = head;
+//     while(temp != null){
+//         cout<<temp->data<<" ";
+//         temp = temp->next;
+//     }
+// }
+
 #include<bits/stdc++.h>
 #define null NULL
 using namespace std;
@@ -256,39 +343,26 @@ class Node{
     int data;
     Node* next;
 };
-void pushAtEnd(Node* head, int data){
-    Node* temp = new Node();
+void pushAtEnd(Node** head, int data){
     Node* newNode = new Node();
-    temp = head;
-    while(temp->next != null) temp = temp->next;
+    Node* temp = new Node();
     newNode->data = data;
     newNode->next = null;
+    if(*head == null){
+        *head = newNode;
+        return;
+    }
+    temp = *head;
+    while(temp->next != null) temp = temp->next;
     temp->next = newNode;
 }
-void deleteAtN(Node** head, int pos){
-    if(*head == null) cout<<"List is empty"<<"\n";
-    else{
-        Node* temp = new Node();
-        Node* temp1 = new Node();
-        temp1 = *head;
-        temp1 = temp1->next;
-        temp = *head;
-        pos--;
-        while(pos-- && temp != null){
-            temp = temp->next;
-            temp1 = temp1->next;
-        }
-        //if(pos > -1) cout<<"No element exist at pos " + pos<<"\n";
-        temp->next = temp1->next;
-    }
-}
 int main(){
-    Node* head = new Node();
-    head->data = 1;
-    head->next = null;
-    for(int i=2; i<=10; i++) pushAtEnd(head, i);
-    deleteAtN(&head, 3);
-    deleteAtN(&head, 1);
+    int x; 
+    Node* head = null;
+    for(int i=0; i<5; i++){
+        cin>>x;
+        pushAtEnd(&head, x);
+    }
     // traversal
     Node* temp = new Node();
     temp = head;
@@ -297,4 +371,3 @@ int main(){
         temp = temp->next;
     }
 }
-
