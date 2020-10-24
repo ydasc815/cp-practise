@@ -613,7 +613,45 @@
 //     sizeOfList(head);
 // }
 
-// Practise : Find if a given key x exists in a singly linked list
+// // Practise : Find if a given key x exists in a singly linked list
+// #include<bits/stdc++.h>
+// #define null NULL
+// using namespace std;
+// class Node{
+//     public:
+//     int data;
+//     Node* next;
+// };
+// void pushAtEnd(Node** head, int data){
+//     Node* newNode = new Node();
+//     newNode->data = data;
+//     newNode->next = null;
+//     if(*head == null){
+//         *head = newNode;
+//         return;
+//     }
+//     Node* temp;
+//     temp = *head;
+//     while(temp->next != null) temp = temp->next;
+//     temp->next = newNode;
+// }
+// bool findX(Node* head, int x){
+//     Node* temp = head;
+//     while(temp != null && temp->data != x) temp = temp->next;
+//     if(temp == null) return 0;
+//     else return 1;
+// }
+// signed main(){
+//     Node* head = null;
+//     pushAtEnd(&head, 2);
+//     pushAtEnd(&head, 8);
+//     pushAtEnd(&head, 9);
+//     pushAtEnd(&head, 3);
+//     pushAtEnd(&head, 4);
+//     cout<<findX(head, 8)<<" "<<findX(head, 10);
+// }
+
+// Practise :  Find nth node in a singly linked list
 #include<bits/stdc++.h>
 #define null NULL
 using namespace std;
@@ -635,18 +673,27 @@ void pushAtEnd(Node** head, int data){
     while(temp->next != null) temp = temp->next;
     temp->next = newNode;
 }
-bool findX(Node* head, int x){
+void getNthKey(Node* head, int pos){
+    int t = 0;
     Node* temp = head;
-    while(temp != null && temp->data != x) temp = temp->next;
-    if(temp == null) return 0;
-    else return 1;
+    while(temp != null && t != pos){
+        t++;
+        temp = temp->next;
+    }
+    if(temp == null){
+        cout<<"No such position in the list"<<"\n";
+        return;
+    }
+    cout<<temp->data<<" ";
 }
-signed main(){
+int main(){
     Node* head = null;
-    pushAtEnd(&head, 2);
-    pushAtEnd(&head, 8);
-    pushAtEnd(&head, 9);
     pushAtEnd(&head, 3);
-    pushAtEnd(&head, 4);
-    cout<<findX(head, 8)<<" "<<findX(head, 10);
+    pushAtEnd(&head, 11);
+    pushAtEnd(&head, 21);
+    pushAtEnd(&head, 29);
+    pushAtEnd(&head, 43);
+    getNthKey(head, 0);
+    getNthKey(head, 3);
+    getNthKey(head, 10);
 }
