@@ -651,7 +651,54 @@
 //     cout<<findX(head, 8)<<" "<<findX(head, 10);
 // }
 
-// Practise :  Find nth node in a singly linked list
+// // Practise :  Find nth node in a singly linked list
+// #include<bits/stdc++.h>
+// #define null NULL
+// using namespace std;
+// class Node{
+//     public:
+//     int data;
+//     Node* next;
+// };
+// void pushAtEnd(Node** head, int data){
+//     Node* newNode = new Node();
+//     newNode->data = data;
+//     newNode->next = null;
+//     if(*head == null){
+//         *head = newNode;
+//         return;
+//     }
+//     Node* temp;
+//     temp = *head;
+//     while(temp->next != null) temp = temp->next;
+//     temp->next = newNode;
+// }
+// void getNthKey(Node* head, int pos){
+//     int t = 0;
+//     Node* temp = head;
+//     while(temp != null && t != pos){
+//         t++;
+//         temp = temp->next;
+//     }
+//     if(temp == null){
+//         cout<<"No such position in the list"<<"\n";
+//         return;
+//     }
+//     cout<<temp->data<<" ";
+// }
+// int main(){
+//     Node* head = null;
+//     pushAtEnd(&head, 3);
+//     pushAtEnd(&head, 11);
+//     pushAtEnd(&head, 21);
+//     pushAtEnd(&head, 29);
+//     pushAtEnd(&head, 43);
+//     getNthKey(head, 0);
+//     getNthKey(head, 3);
+//     getNthKey(head, 10);
+// }
+
+// Practise : Given a singly linked list, print its middle node/element
 #include<bits/stdc++.h>
 #define null NULL
 using namespace std;
@@ -673,27 +720,38 @@ void pushAtEnd(Node** head, int data){
     while(temp->next != null) temp = temp->next;
     temp->next = newNode;
 }
-void getNthKey(Node* head, int pos){
-    int t = 0;
+void middleKey(Node* head){
+    int size = 0;
     Node* temp = head;
-    while(temp != null && t != pos){
-        t++;
+    while(temp != null){
+        size++;
         temp = temp->next;
     }
-    if(temp == null){
-        cout<<"No such position in the list"<<"\n";
-        return;
+    temp = head;
+    int t = 0;
+    if(size%2 != 0){
+        while(t != size/2){
+            temp = temp->next;
+            t++;
+        }
+        cout<<temp->data<<" ";
+    } else{
+        while(t != (size/2)-1){
+            temp = temp->next;
+            t++;
+        }
+        cout<<temp->data<<" "<<temp->next->data<<" ";
     }
-    cout<<temp->data<<" ";
 }
 int main(){
     Node* head = null;
+    pushAtEnd(&head, 4);
     pushAtEnd(&head, 3);
-    pushAtEnd(&head, 11);
-    pushAtEnd(&head, 21);
-    pushAtEnd(&head, 29);
-    pushAtEnd(&head, 43);
-    getNthKey(head, 0);
-    getNthKey(head, 3);
-    getNthKey(head, 10);
+    pushAtEnd(&head, 1);
+    pushAtEnd(&head, 9);
+    pushAtEnd(&head, 2);
+    pushAtEnd(&head, -1);
+    pushAtEnd(&head, -5);
+    pushAtEnd(&head, -9);
+    middleKey(head);
 }
