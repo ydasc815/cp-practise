@@ -513,7 +513,64 @@
 //     }
 // } 
 
-// Practise -> Given a linked list, write a program to delete this linked list
+// // Practise -> Given a linked list, write a program to delete this linked list
+// #include<bits/stdc++.h>
+// #define null NULL
+// using namespace std;
+// class Node{
+//     public:
+//     int data;
+//     Node* next;
+// };
+// void pushAtEnd(Node** head, int data){
+//     Node* newNode = new Node();
+//     newNode->data = data;
+//     newNode->next = null;
+//     if(*head == null){
+//         *head = newNode;
+//         return;
+//     }
+//     Node* temp;
+//     temp = *head;
+//     while(temp->next != null) temp = temp->next;
+//     temp->next = newNode;
+// }
+// // [OBSERVATION] : No need to assign a memory block to temp (= new Node()) because temp does not have to store any data.
+// void deleteList(Node** head){
+//     Node* temp; Node* temp1;
+//     temp = *head;
+//     while(temp != null){
+//         temp1 = temp->next;
+//         free(temp);
+//         temp = temp1;
+//     }
+//     *head = null;
+// }
+// int main(){
+//     Node* head = null;
+//     pushAtEnd(&head, 1);
+//     pushAtEnd(&head, -2);
+//     pushAtEnd(&head, 3);
+//     pushAtEnd(&head, 4);
+//     pushAtEnd(&head, 6);
+//     Node* temp;
+//     // traversal -> to check if all the above elements have been added to the linked list
+//     temp = head;
+//     while(temp != null){
+//         cout<<temp->data<<" ";
+//         temp = temp->next;
+//     }
+//     cout<<"\n";
+//     deleteList(&head);
+//     // traversal -> to check if the lineked list has been deleted (all elements removed)
+//     temp = head;
+//     while(temp != null){
+//         cout<<temp->data<<" ";
+//         temp = temp->next;
+//     }
+// }
+
+// Practise : Find the size of a singly linked list
 #include<bits/stdc++.h>
 #define null NULL
 using namespace std;
@@ -535,37 +592,23 @@ void pushAtEnd(Node** head, int data){
     while(temp->next != null) temp = temp->next;
     temp->next = newNode;
 }
-// [OBSERVATION] : No need to assign a memory block to temp (= new Node()) because temp does not have to store any data.
-void deleteList(Node** head){
-    Node* temp; Node* temp1;
-    temp = *head;
+void sizeOfList(Node* head){
+    Node* temp = head;
+    int count = 0;
     while(temp != null){
-        temp1 = temp->next;
-        free(temp);
-        temp = temp1;
+        count++;
+        temp = temp->next;
     }
-    *head = null;
+    cout<<count<<" ";
 }
 int main(){
     Node* head = null;
+    pushAtEnd(&head, 2);
     pushAtEnd(&head, 1);
-    pushAtEnd(&head, -2);
+    pushAtEnd(&head, -1);
     pushAtEnd(&head, 3);
     pushAtEnd(&head, 4);
+    pushAtEnd(&head, 9);
     pushAtEnd(&head, 6);
-    Node* temp;
-    // traversal -> to check if all the above elements have been added to the linked list
-    temp = head;
-    while(temp != null){
-        cout<<temp->data<<" ";
-        temp = temp->next;
-    }
-    cout<<"\n";
-    deleteList(&head);
-    // traversal -> to check if the lineked list has been deleted (all elements removed)
-    temp = head;
-    while(temp != null){
-        cout<<temp->data<<" ";
-        temp = temp->next;
-    }
+    sizeOfList(head);
 }
