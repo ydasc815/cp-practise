@@ -444,7 +444,76 @@
 //     }
 // }
 
-// Revise (with prev doubts resolved) : Delete a node at given position in a singly linked list
+// // Revise (with prev doubts resolved) : Delete a node at given position in a singly linked list
+// #include<bits/stdc++.h>
+// #define null NULL
+// using namespace std;
+// class Node{
+//     public:
+//     int data;
+//     Node* next;
+// };
+// void pushAtEnd(Node** head, int data){
+//     Node* newNode = new Node();
+//     newNode->data = data;
+//     newNode->next = null;
+//     if(*head == null){
+//         *head = newNode;
+//         return;
+//     }
+//     Node* temp = new Node();
+//     temp = *head;
+//     while(temp->next != null) temp = temp->next;
+//     temp->next = newNode;
+// }
+// void deleteAtN(Node** head, int pos){
+//     Node* temp = new Node();
+//     Node* prev = new Node();
+//     temp = *head;
+//     if(pos == 0){
+//         *head = temp->next;
+//         free(temp);
+//         return;
+//     }
+//     while(pos-- && temp != null){
+//         prev = temp;
+//         temp = temp->next;
+//     }
+//     if(pos > 0){
+//         cout<<"No such position in the list"<<"\n";
+//         return;
+//     }
+//     prev->next = temp->next;
+//     free(temp);
+// }
+// int main(){
+//     Node* head = null;
+//     pushAtEnd(&head, 2);
+//     pushAtEnd(&head, -3);
+//     pushAtEnd(&head, 4);
+//     pushAtEnd(&head, 5);
+//     pushAtEnd(&head, 9);
+//     pushAtEnd(&head, 13);
+//     pushAtEnd(&head, -5);
+//     Node* temp = new Node();
+//     temp = head;
+//     while(temp != null){
+//         cout<<temp->data<<" "; 
+//         temp = temp->next;
+//     }
+//     cout<<"\n";
+//     deleteAtN(&head, 0);
+//     deleteAtN(&head, 3);
+//     deleteAtN(&head, 2);
+//     deleteAtN(&head, 13);
+//     temp = head;
+//     while(temp != null){
+//         cout<<temp->data<<" "; 
+//         temp = temp->next;
+//     }
+// } 
+
+// Practise -> Given a linked list, write a program to delete this linked list
 #include<bits/stdc++.h>
 #define null NULL
 using namespace std;
@@ -461,54 +530,42 @@ void pushAtEnd(Node** head, int data){
         *head = newNode;
         return;
     }
-    Node* temp = new Node();
+    Node* temp;
     temp = *head;
     while(temp->next != null) temp = temp->next;
     temp->next = newNode;
 }
-void deleteAtN(Node** head, int pos){
-    Node* temp = new Node();
-    Node* prev = new Node();
+// [OBSERVATION] : No need to assign a memory block to temp (= new Node()) because temp does not have to store any data.
+void deleteList(Node** head){
+    Node* temp; Node* temp1;
     temp = *head;
-    if(pos == 0){
-        *head = temp->next;
+    while(temp != null){
+        temp1 = temp->next;
         free(temp);
-        return;
+        temp = temp1;
     }
-    while(pos-- && temp != null){
-        prev = temp;
-        temp = temp->next;
-    }
-    if(pos > 0){
-        cout<<"No such position in the list"<<"\n";
-        return;
-    }
-    prev->next = temp->next;
-    free(temp);
+    *head = null;
 }
 int main(){
     Node* head = null;
-    pushAtEnd(&head, 2);
-    pushAtEnd(&head, -3);
+    pushAtEnd(&head, 1);
+    pushAtEnd(&head, -2);
+    pushAtEnd(&head, 3);
     pushAtEnd(&head, 4);
-    pushAtEnd(&head, 5);
-    pushAtEnd(&head, 9);
-    pushAtEnd(&head, 13);
-    pushAtEnd(&head, -5);
-    Node* temp = new Node();
+    pushAtEnd(&head, 6);
+    Node* temp;
+    // traversal -> to check if all the above elements have been added to the linked list
     temp = head;
     while(temp != null){
-        cout<<temp->data<<" "; 
+        cout<<temp->data<<" ";
         temp = temp->next;
     }
     cout<<"\n";
-    deleteAtN(&head, 0);
-    deleteAtN(&head, 3);
-    deleteAtN(&head, 2);
-    deleteAtN(&head, 13);
+    deleteList(&head);
+    // traversal -> to check if the lineked list has been deleted (all elements removed)
     temp = head;
     while(temp != null){
-        cout<<temp->data<<" "; 
+        cout<<temp->data<<" ";
         temp = temp->next;
     }
 }
