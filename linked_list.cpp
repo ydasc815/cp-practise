@@ -756,3 +756,55 @@
 //     middleKey(head);
 // } runs fine. Another method is to use a fast and a slow pointer such that fast moves 2 times farther from slow pointer
 // in short, *fast = *fast->next->next & *slow = *slow->next;
+
+// Practise : Count number of occurences of a given key in a singly linked list
+#include<bits/stdc++.h>
+#define null NULL
+using namespace std;
+class Node{
+    public:
+    int data;
+    Node* next;
+};
+void pushAtEnd(Node** head, int data){
+    Node* newNode = new Node();
+    newNode->data = data;
+    newNode->next = null;
+    if(*head == null){
+        *head = newNode;
+        return;
+    }
+    Node* temp = *head;
+    while(temp->next != null) temp = temp->next;
+    temp->next = newNode;
+}
+void printList(Node* head){
+    Node* temp = head;
+    while(temp != null){
+        cout<<temp->data<<" ";
+        temp = temp->next;
+    }
+    cout<<"\n";
+}
+void countOcc(Node* head, int key){
+    Node* temp = head;
+    int count = 0;
+    while(temp != null){
+        if(temp->data == key) count++;
+        temp = temp->next;
+    }
+    cout<<count<<"\n";
+}
+int main(){
+    Node* head = null;
+    pushAtEnd(&head, 2);
+    pushAtEnd(&head, 1);
+    pushAtEnd(&head, 3);
+    pushAtEnd(&head, -4);
+    pushAtEnd(&head, 5);
+    pushAtEnd(&head, 3);
+    pushAtEnd(&head, -6);
+    printList(head);
+    // counting no. of occurences of a key :
+    countOcc(head, 3);
+}
