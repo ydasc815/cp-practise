@@ -975,16 +975,82 @@
 //     else cout<<"Loop found with length = "<<(v1[1] - v1[0])<<"\n";
 // }
 
-// Practise : Detect a loop in a singly linked list and find its length [better approach for length]
+// // Practise : Detect a loop in a singly linked list and find its length [better approach for length]
+// #include<bits/stdc++.h>
+// #define null NULL
+// using namespace std;
+// class Node{
+//     public:
+//     int data;
+//     Node* next;
+// };
+// void pushAtEnd(Node** head, int data){
+//     Node* newNode = new Node();
+//     newNode->data = data;
+//     newNode->next = null;
+//     if(*head == null){
+//         *head = newNode;
+//         return;
+//     }
+//     Node* temp = *head;
+//     while(temp->next != null) temp = temp->next;
+//     temp->next = newNode;
+// }
+// void printList(Node* head){
+//     Node* temp = head;
+//     while(temp != null){
+//         cout<<temp->data<<" ";
+//         temp = temp->next;
+//     }
+//     cout<<"\n";
+// }
+// int main(){
+//     Node* head = null;
+//     pushAtEnd(&head, 1);
+//     pushAtEnd(&head, 2);
+//     pushAtEnd(&head, 3);
+//     pushAtEnd(&head, 4);
+//     pushAtEnd(&head, 5);
+//     pushAtEnd(&head, 6);
+//     Node* temp = head; Node* temp1 = head;
+//     temp = temp->next->next;
+//     while(temp1->next != null) temp1 = temp1->next;
+//     temp1->next = temp; // loop made here
+//     map<Node*, int> m; int fg = 0;
+//     temp = head;
+//     for(int i=0; i<6; i++){
+//         m[temp->next]++;
+//         temp = temp->next;
+//     }
+//     for(auto i=m.begin(); i!=m.end(); i++){
+//         if(i->second > 1){
+//             fg = 1;
+//             temp = i->first, temp1 = i->first;
+//             break;
+//         }
+//     }
+//     if(fg == 1){
+//         cout<<"Loop found"<<"\n";
+//         int len = 0;
+//         temp = temp->next;
+//         while(temp != temp1){
+//             temp = temp->next;
+//             len++;
+//         }
+//         cout<<"Length of loop = "<<len+1<<"\n";
+//     } 
+//     else cout<<"Loop not found"<<"\n";
+// }
+
 #include<bits/stdc++.h>
 #define null NULL
 using namespace std;
 class Node{
     public:
-    int data;
+    char data;
     Node* next;
 };
-void pushAtEnd(Node** head, int data){
+void pushAtEnd(Node** head, char data){
     Node* newNode = new Node();
     newNode->data = data;
     newNode->next = null;
@@ -996,48 +1062,23 @@ void pushAtEnd(Node** head, int data){
     while(temp->next != null) temp = temp->next;
     temp->next = newNode;
 }
-void printList(Node* head){
-    Node* temp = head;
-    while(temp != null){
-        cout<<temp->data<<" ";
-        temp = temp->next;
-    }
-    cout<<"\n";
-}
 int main(){
     Node* head = null;
-    pushAtEnd(&head, 1);
-    pushAtEnd(&head, 2);
-    pushAtEnd(&head, 3);
-    pushAtEnd(&head, 4);
-    pushAtEnd(&head, 5);
-    pushAtEnd(&head, 6);
-    Node* temp = head; Node* temp1 = head;
-    temp = temp->next->next;
-    while(temp1->next != null) temp1 = temp1->next;
-    temp1->next = temp; // loop made here
-    map<Node*, int> m; int fg = 0;
-    temp = head;
-    for(int i=0; i<6; i++){
-        m[temp->next]++;
+    pushAtEnd(&head, 'a');
+    pushAtEnd(&head, 'b');
+    pushAtEnd(&head, 'c');
+    pushAtEnd(&head, 'b');
+    pushAtEnd(&head, 'a');
+    // palindorme check from here
+    string s = "", rev;
+    Node* temp = head;
+    while(temp != null){
+        string x(1, temp->data);
+        s.append(x);
         temp = temp->next;
     }
-    for(auto i=m.begin(); i!=m.end(); i++){
-        if(i->second > 1){
-            fg = 1;
-            temp = i->first, temp1 = i->first;
-            break;
-        }
-    }
-    if(fg == 1){
-        cout<<"Loop found"<<"\n";
-        int len = 0;
-        temp = temp->next;
-        while(temp != temp1){
-            temp = temp->next;
-            len++;
-        }
-        cout<<"Length of loop = "<<len+1<<"\n";
-    } 
-    else cout<<"Loop not found"<<"\n";
+    rev = s;
+    reverse(rev.begin(), rev.end());
+    if(s == rev) cout<<"Linked list forms a palindrome"<<"\n";
+    else cout<<"Linked list does not form a palindrome"<<"\n";
 }
