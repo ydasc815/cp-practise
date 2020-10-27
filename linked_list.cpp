@@ -866,14 +866,69 @@
 //     else cout<<"Loop not found"<<"\n";
 // }
 
-// Practise : Loop in singly linked list, new approach
+// // Practise : Loop in singly linked list, new approach
+// #include<bits/stdc++.h>
+// #define null NULL
+// using namespace std;
+// class Node{
+//     public:
+//     int data;
+//     int flag = 0;
+//     Node* next;
+// };
+// void pushAtEnd(Node** head, int data){
+//     Node* newNode = new Node();
+//     newNode->data = data;
+//     newNode->next = null;
+//     if(*head == null){
+//         *head = newNode;
+//         return;
+//     }
+//     Node* temp = *head;
+//     while(temp->next != null) temp = temp->next;
+//     temp->next = newNode;
+// }
+// void printList(Node* head){
+//     Node* temp = head;
+//     while(temp != null){
+//         cout<<temp->data<<" ";
+//         temp = temp->next;
+//     }
+//     cout<<"\n";
+// }
+// int main(){
+//     Node* head = null;
+//     pushAtEnd(&head, 1);
+//     pushAtEnd(&head, 2);
+//     pushAtEnd(&head, 3);
+//     pushAtEnd(&head, 4);
+//     pushAtEnd(&head, 5);
+//     pushAtEnd(&head, 6);
+//     Node* temp = head; Node* temp1 = head;
+//     temp = temp->next->next;
+//     while(temp1->next != null) temp1 = temp1->next;
+//     temp1->next = temp; // loop made here
+//     int fg = 0;
+//     temp = head;
+//     while(temp != null){
+//         if(temp->flag == 0) temp->flag = 1;
+//         if(temp->flag == 1){
+//             fg = 1;
+//             break;
+//         }
+//     }
+//     if(fg == 1) cout<<"Loop exists"<<"\n";
+//     else cout<<"Loop does not exist"<<"\n";
+// }
+
+// Practise : Find the length of loop in a singly linked list 
+// [Naive Approach]
 #include<bits/stdc++.h>
 #define null NULL
 using namespace std;
 class Node{
     public:
     int data;
-    int flag = 0;
     Node* next;
 };
 void pushAtEnd(Node** head, int data){
@@ -888,14 +943,6 @@ void pushAtEnd(Node** head, int data){
     while(temp->next != null) temp = temp->next;
     temp->next = newNode;
 }
-void printList(Node* head){
-    Node* temp = head;
-    while(temp != null){
-        cout<<temp->data<<" ";
-        temp = temp->next;
-    }
-    cout<<"\n";
-}
 int main(){
     Node* head = null;
     pushAtEnd(&head, 1);
@@ -908,15 +955,22 @@ int main(){
     temp = temp->next->next;
     while(temp1->next != null) temp1 = temp1->next;
     temp1->next = temp; // loop made here
-    int fg = 0;
+    map<Node*, int> m; vector<Node*> v; vector<int> v1; int fg = 0;
     temp = head;
-    while(temp != null){
-        if(temp->flag == 0) temp->flag = 1;
-        if(temp->flag == 1){
+    for(int i=0; i<6; i++){
+        m[temp->next]++;
+        v.push_back(temp->next);
+        temp = temp->next;
+    }
+    for(auto i=m.begin(); i!=m.end(); i++){
+        if(i->second > 1){
+            for(int j=0; j<v.size(); j++){
+                if(v[j] == i->first) v1.push_back(j+1);
+            }
             fg = 1;
             break;
         }
     }
-    if(fg == 1) cout<<"Loop exists"<<"\n";
-    else cout<<"Loop does not exist"<<"\n";
+    if(fg == 0) cout<<"No Loop found"<<"\n";
+    else cout<<"Loop found with length = "<<(v1[1] - v1[0])<<"\n";
 }
