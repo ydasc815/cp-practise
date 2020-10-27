@@ -921,8 +921,61 @@
 //     else cout<<"Loop does not exist"<<"\n";
 // }
 
-// Practise : Find the length of loop in a singly linked list 
-// [Naive Approach]
+// // Practise : Find the length of loop in a singly linked list 
+// // [Naive Approach]
+// #include<bits/stdc++.h>
+// #define null NULL
+// using namespace std;
+// class Node{
+//     public:
+//     int data;
+//     Node* next;
+// };
+// void pushAtEnd(Node** head, int data){
+//     Node* newNode = new Node();
+//     newNode->data = data;
+//     newNode->next = null;
+//     if(*head == null){
+//         *head = newNode;
+//         return;
+//     }
+//     Node* temp = *head;
+//     while(temp->next != null) temp = temp->next;
+//     temp->next = newNode;
+// }
+// int main(){
+//     Node* head = null;
+//     pushAtEnd(&head, 1);
+//     pushAtEnd(&head, 2);
+//     pushAtEnd(&head, 3);
+//     pushAtEnd(&head, 4);
+//     pushAtEnd(&head, 5);
+//     pushAtEnd(&head, 6);
+//     Node* temp = head; Node* temp1 = head;
+//     temp = temp->next->next;
+//     while(temp1->next != null) temp1 = temp1->next;
+//     temp1->next = temp; // loop made here
+//     map<Node*, int> m; vector<Node*> v; vector<int> v1; int fg = 0;
+//     temp = head;
+//     for(int i=0; i<6; i++){
+//         m[temp->next]++;
+//         v.push_back(temp->next);
+//         temp = temp->next;
+//     }
+//     for(auto i=m.begin(); i!=m.end(); i++){
+//         if(i->second > 1){
+//             for(int j=0; j<v.size(); j++){
+//                 if(v[j] == i->first) v1.push_back(j+1);
+//             }
+//             fg = 1;
+//             break;
+//         }
+//     }
+//     if(fg == 0) cout<<"No Loop found"<<"\n";
+//     else cout<<"Loop found with length = "<<(v1[1] - v1[0])<<"\n";
+// }
+
+// Practise : Detect a loop in a singly linked list and find its length [better approach for length]
 #include<bits/stdc++.h>
 #define null NULL
 using namespace std;
@@ -943,6 +996,14 @@ void pushAtEnd(Node** head, int data){
     while(temp->next != null) temp = temp->next;
     temp->next = newNode;
 }
+void printList(Node* head){
+    Node* temp = head;
+    while(temp != null){
+        cout<<temp->data<<" ";
+        temp = temp->next;
+    }
+    cout<<"\n";
+}
 int main(){
     Node* head = null;
     pushAtEnd(&head, 1);
@@ -955,22 +1016,28 @@ int main(){
     temp = temp->next->next;
     while(temp1->next != null) temp1 = temp1->next;
     temp1->next = temp; // loop made here
-    map<Node*, int> m; vector<Node*> v; vector<int> v1; int fg = 0;
+    map<Node*, int> m; int fg = 0;
     temp = head;
     for(int i=0; i<6; i++){
         m[temp->next]++;
-        v.push_back(temp->next);
         temp = temp->next;
     }
     for(auto i=m.begin(); i!=m.end(); i++){
         if(i->second > 1){
-            for(int j=0; j<v.size(); j++){
-                if(v[j] == i->first) v1.push_back(j+1);
-            }
             fg = 1;
+            temp = i->first, temp1 = i->first;
             break;
         }
     }
-    if(fg == 0) cout<<"No Loop found"<<"\n";
-    else cout<<"Loop found with length = "<<(v1[1] - v1[0])<<"\n";
+    if(fg == 1){
+        cout<<"Loop found"<<"\n";
+        int len = 0;
+        temp = temp->next;
+        while(temp != temp1){
+            temp = temp->next;
+            len++;
+        }
+        cout<<"Length of loop = "<<len+1<<"\n";
+    } 
+    else cout<<"Loop not found"<<"\n";
 }
