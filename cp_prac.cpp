@@ -13637,11 +13637,73 @@
 //     }
 // } a/c
 
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     list<int> li; // stl function for linkedlist
+// }
+
+// daa lab 27-10-2020
 // Aditya @ydasc815
-#include<bits/stdc++.h>
+#include<iostream>
+#define null NULL
 #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
 using namespace std;
+typedef struct node{
+  int key;
+  struct node *left, *right;
+}Node;
+Node *create(int item){
+  Node *temp = new Node();
+  temp->key = item;
+  temp->left = temp->right = null;
+  return temp;
+}
+int height(Node* node){ 
+    if (node == null) 
+        return 0; 
+    else{ 
+        int lh = height(node->left); 
+        int rh = height(node->right); 
+        if (lh > rh) return lh+1; 
+        else return(rh+1); 
+    } 
+}
+void printnode(Node* root, int level) 
+{ 
+    if (root == null) return;
+    if (level == 1){
+        cout<<root->key<<" ";        
+    }
+    else if (level > 1){ 
+        printnode(root->left, level-1); 
+        printnode(root->right, level-1); 
+    } 
+}   
+void Order(Node* root){ 
+    int h = height(root); 
+    int i; 
+    for (i=1; i<=h; i++) printnode(root, i); 
+} 
+Node *insert(Node *node, int key) {
+  if (node == null) return create(key);
+  if (key < node->key) node->left = insert(node->left, key);
+  else node->right = insert(node->right, key);
+  return node;
+}
+
 int main(){
     FastIO
-    list<int> li; // stl function for linkedlist
+    Node *root = null;
+    int n, a; cin>>n;
+    if(n == 0) cout<<-1<<"\n";
+    for(int i=0; i<n; i++){
+        cin>>a;
+        if(a < 0) cout<<-1<<"\n";
+        else root = insert(root, a);
+    }
+    Order(root);
 }
