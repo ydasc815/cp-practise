@@ -1042,6 +1042,7 @@
 //     else cout<<"Loop not found"<<"\n";
 // }
 
+// Prcatise : To check if there exist a palindrome forming character list.
 #include<bits/stdc++.h>
 #define null NULL
 using namespace std;
