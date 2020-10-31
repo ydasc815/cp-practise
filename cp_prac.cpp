@@ -13646,64 +13646,163 @@
 //     list<int> li; // stl function for linkedlist
 // }
 
-// daa lab 27-10-2020
-// Aditya @ydasc815
-#include<iostream>
-#define null NULL
-#define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
-using namespace std;
-typedef struct node{
-  int key;
-  struct node *left, *right;
-}Node;
-Node *create(int item){
-  Node *temp = new Node();
-  temp->key = item;
-  temp->left = temp->right = null;
-  return temp;
-}
-int height(Node* node){ 
-    if (node == null) 
-        return 0; 
-    else{ 
-        int lh = height(node->left); 
-        int rh = height(node->right); 
-        if (lh > rh) return lh+1; 
-        else return(rh+1); 
-    } 
-}
-void printnode(Node* root, int level) 
-{ 
-    if (root == null) return;
-    if (level == 1){
-        cout<<root->key<<" ";        
-    }
-    else if (level > 1){ 
-        printnode(root->left, level-1); 
-        printnode(root->right, level-1); 
-    } 
-}   
-void Order(Node* root){ 
-    int h = height(root); 
-    int i; 
-    for (i=1; i<=h; i++) printnode(root, i); 
-} 
-Node *insert(Node *node, int key) {
-  if (node == null) return create(key);
-  if (key < node->key) node->left = insert(node->left, key);
-  else node->right = insert(node->right, key);
-  return node;
-}
+// // daa lab 27-10-2020
+// // Aditya @ydasc815
+// #include<iostream>
+// #define null NULL
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// typedef struct node{
+//   int key;
+//   struct node *left, *right;
+// }Node;
+// Node *create(int item){
+//   Node *temp = new Node();
+//   temp->key = item;
+//   temp->left = temp->right = null;
+//   return temp;
+// }
+// int height(Node* node){ 
+//     if (node == null) 
+//         return 0; 
+//     else{ 
+//         int lh = height(node->left); 
+//         int rh = height(node->right); 
+//         if (lh > rh) return lh+1; 
+//         else return(rh+1); 
+//     } 
+// }
+// void printnode(Node* root, int level) 
+// { 
+//     if (root == null) return;
+//     if (level == 1){
+//         cout<<root->key<<" ";        
+//     }
+//     else if (level > 1){ 
+//         printnode(root->left, level-1); 
+//         printnode(root->right, level-1); 
+//     } 
+// }   
+// void Order(Node* root){ 
+//     int h = height(root); 
+//     int i; 
+//     for (i=1; i<=h; i++) printnode(root, i); 
+// } 
+// Node *insert(Node *node, int key) {
+//   if (node == null) return create(key);
+//   if (key < node->key) node->left = insert(node->left, key);
+//   else node->right = insert(node->right, key);
+//   return node;
+// }
 
-int main(){
-    FastIO
-    Node *root = null;
-    int n, a; cin>>n;
-    if(n == 0) cout<<-1<<"\n";
-    for(int i=0; i<n; i++){
-        cin>>a;
-        if(a < 0) cout<<-1<<"\n";
-        else root = insert(root, a);
-    }
-    Order(root);
-}
+// int main(){
+//     FastIO
+//     Node *root = null;
+//     int n, a; cin>>n;
+//     if(n == 0) cout<<-1<<"\n";
+//     for(int i=0; i<n; i++){
+//         cin>>a;
+//         if(a < 0) cout<<-1<<"\n";
+//         else root = insert(root, a);
+//     }
+//     Order(root);
+// }
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int n, x, s = 0; cin>>n;
+//     for(int i=0; i<n-1; i++){
+//         cin>>x;
+//         s += x;
+//     }
+//     x = n*(n+1)/2;
+//     cout<<x - s;
+// }
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int n, cnt = 0; cin>>n;
+//     while(n != 0){
+//         vector<int> v;
+//         int t = n;
+//         while(t > 0){
+//             v.push_back(t%10);
+//             t /= 10;
+//         }
+//         sort(v.begin(), v.end());
+//         n -= v[v.size()-1];
+//         cnt++;
+//     }
+//     cout<<cnt;
+// } a/c
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// #define int long long
+// using namespace std;
+// int main(){
+//     FastIO
+//     int n; cin>>n;
+//     cout<<n<<" ";
+//     while(n != 1){
+//         if(n%2 == 0){
+//             n /= 2;
+//             cout<<n<<" ";
+//         } else{
+//             n *= 3; n++;
+//             cout<<n<<" ";
+//         }
+//     }
+// } a/c
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// #define int long long
+// using namespace std;
+// signed main(){
+//     FastIO
+//     int n, x; cin>>n;
+//     int a[n];
+//     for(int i=0; i<n; i++) cin>>a[i];
+//     sort(a, a+n);
+//     x = a[n-1];
+//     for(int i=1; i<n; i++){
+//         a[i] = a[i] + a[i-1];
+//     }
+//     cout<<max(a[n-1], 2*x);
+// }
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int n, x, y, cnt = 0, t = 0; cin>>n;
+//     map<int, int> m;
+//     for(int i=0; i<n; i++){
+//         cin>>x>>y;
+//         if(m[x] == 0) m[x] = y;
+//         else if(m[x] > 0){
+//             if(y < m[x]) m[x] = y;
+//         }
+//     }
+//     for(auto i=m.begin(); i!=m.end(); i++){
+//         if(i->first >= t){
+//             cnt++;
+//             t = i->second;
+//         }
+//     }
+//     cout<<cnt;
+// }
+

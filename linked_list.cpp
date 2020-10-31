@@ -1042,13 +1042,54 @@
 //     else cout<<"Loop not found"<<"\n";
 // }
 
-// Prcatise : To check if there exist a palindrome forming character list.
+// // Prcatise : To check if there exist a palindrome forming character list.
+// #include<bits/stdc++.h>
+// #define null NULL
+// using namespace std;
+// class Node{
+//     public:
+//     char data;
+//     Node* next;
+// };
+// void pushAtEnd(Node** head, char data){
+//     Node* newNode = new Node();
+//     newNode->data = data;
+//     newNode->next = null;
+//     if(*head == null){
+//         *head = newNode;
+//         return;
+//     }
+//     Node* temp = *head;
+//     while(temp->next != null) temp = temp->next;
+//     temp->next = newNode;
+// }
+// int main(){
+//     Node* head = null;
+//     pushAtEnd(&head, 'a');
+//     pushAtEnd(&head, 'b');
+//     pushAtEnd(&head, 'c');
+//     pushAtEnd(&head, 'b');
+//     pushAtEnd(&head, 'a');
+//     // palindorme check from here
+//     string s = "", rev;
+//     Node* temp = head;
+//     while(temp != null){
+//         string x(1, temp->data);
+//         s.append(x);
+//         temp = temp->next;
+//     }
+//     rev = s;
+//     reverse(rev.begin(), rev.end());
+//     if(s == rev) cout<<"Linked list forms a palindrome"<<"\n";
+//     else cout<<"Linked list does not form a palindrome"<<"\n";
+// }
+
 #include<bits/stdc++.h>
 #define null NULL
 using namespace std;
 class Node{
     public:
-    char data;
+    int data;
     Node* next;
 };
 void pushAtEnd(Node** head, char data){
@@ -1063,23 +1104,36 @@ void pushAtEnd(Node** head, char data){
     while(temp->next != null) temp = temp->next;
     temp->next = newNode;
 }
-int main(){
-    Node* head = null;
-    pushAtEnd(&head, 'a');
-    pushAtEnd(&head, 'b');
-    pushAtEnd(&head, 'c');
-    pushAtEnd(&head, 'b');
-    pushAtEnd(&head, 'a');
-    // palindorme check from here
-    string s = "", rev;
+void printList(Node* head){
     Node* temp = head;
     while(temp != null){
-        string x(1, temp->data);
-        s.append(x);
+        cout<<temp->data<<" ";
         temp = temp->next;
     }
-    rev = s;
-    reverse(rev.begin(), rev.end());
-    if(s == rev) cout<<"Linked list forms a palindrome"<<"\n";
-    else cout<<"Linked list does not form a palindrome"<<"\n";
+    cout<<"\n";
+}
+void removeDuplicates(Node* head){
+    Node* temp = head;
+    while(temp != null){
+        if(temp->next != null && temp->data != temp->next->data) temp = temp->next;
+        else{
+            Node* temp1 = temp;
+            temp1 = temp1->next;
+            temp->next = temp1->next;
+            delete temp1;
+        }
+    } // 11->11->11->21->43->43->60
+}
+int main(){
+    Node* head = null;
+    pushAtEnd(&head, 11);
+    pushAtEnd(&head, 11);
+    pushAtEnd(&head, 11);
+    pushAtEnd(&head, 21);
+    pushAtEnd(&head, 43);
+    pushAtEnd(&head, 43);
+    pushAtEnd(&head, 60);
+    printList(head);
+    // removeDuplicates(head);
+    // printList(head);
 }
