@@ -1084,6 +1084,7 @@
 //     else cout<<"Linked list does not form a palindrome"<<"\n";
 // }
 
+// Practise : Remove Duplicates from a sorted linked list
 #include<bits/stdc++.h>
 #define null NULL
 using namespace std;
@@ -1114,26 +1115,26 @@ void printList(Node* head){
 }
 void removeDuplicates(Node* head){
     Node* temp = head;
-    while(temp != null){
-        if(temp->next != null && temp->data != temp->next->data) temp = temp->next;
+    while(temp->next != null){
+        if(temp->data != temp->next->data) temp = temp->next;
         else{
             Node* temp1 = temp;
             temp1 = temp1->next;
             temp->next = temp1->next;
-            delete temp1;
+            free(temp1);
         }
-    } // 11->11->11->21->43->43->60
+    } 
 }
 int main(){
     Node* head = null;
     pushAtEnd(&head, 11);
-    pushAtEnd(&head, 11);
-    pushAtEnd(&head, 11);
     pushAtEnd(&head, 21);
-    pushAtEnd(&head, 43);
-    pushAtEnd(&head, 43);
-    pushAtEnd(&head, 60);
+    pushAtEnd(&head, 39);
+    pushAtEnd(&head, 39);
+    pushAtEnd(&head, 39);
+    pushAtEnd(&head, 48);
+    pushAtEnd(&head, 48);
     printList(head);
-    // removeDuplicates(head);
-    // printList(head);
+    removeDuplicates(head);
+    printList(head);
 }
