@@ -1084,7 +1084,122 @@
 //     else cout<<"Linked list does not form a palindrome"<<"\n";
 // }
 
-// Practise : Remove Duplicates from a sorted linked list
+// // Practise : Remove Duplicates from a sorted linked list
+// #include<bits/stdc++.h>
+// #define null NULL
+// using namespace std;
+// class Node{
+//     public:
+//     int data;
+//     Node* next;
+// };
+// void pushAtEnd(Node** head, char data){
+//     Node* newNode = new Node();
+//     newNode->data = data;
+//     newNode->next = null;
+//     if(*head == null){
+//         *head = newNode;
+//         return;
+//     }
+//     Node* temp = *head;
+//     while(temp->next != null) temp = temp->next;
+//     temp->next = newNode;
+// }
+// void printList(Node* head){
+//     Node* temp = head;
+//     while(temp != null){
+//         cout<<temp->data<<" ";
+//         temp = temp->next;
+//     }
+//     cout<<"\n";
+// }
+// void removeDuplicates(Node* head){
+//     Node* temp = head;
+//     while(temp->next != null){
+//         if(temp->data != temp->next->data) temp = temp->next;
+//         else{
+//             Node* temp1 = temp;
+//             temp1 = temp1->next;
+//             temp->next = temp1->next;
+//             free(temp1);
+//         }
+//     } 
+// }
+// int main(){
+//     Node* head = null;
+//     pushAtEnd(&head, 11);
+//     pushAtEnd(&head, 21);
+//     pushAtEnd(&head, 39);
+//     pushAtEnd(&head, 39);
+//     pushAtEnd(&head, 39);
+//     pushAtEnd(&head, 48);
+//     pushAtEnd(&head, 48);
+//     printList(head);
+//     removeDuplicates(head);
+//     printList(head);
+// }
+
+// // Practise : To remove duplicates from an unsorted linked list
+// #include<bits/stdc++.h>
+// #define null NULL
+// using namespace std;
+// class Node{
+//     public:
+//     int data;
+//     Node* next;
+// };
+// void pushAtEnd(Node** head, int data){
+//     Node* newNode = new Node();
+//     newNode->data = data;
+//     newNode->next = null;
+//     if(*head == null){
+//         *head = newNode;
+//         return;
+//     }
+//     Node* temp = *head;
+//     while(temp->next != null) temp = temp->next;
+//     temp->next = newNode;
+// }
+// void printList(Node* head){
+//     Node* temp = head;
+//     while(temp != null){
+//         cout<<temp->data<<" ";
+//         temp = temp->next;
+//     }
+//     cout<<"\n";
+// }
+// void removeDuplicates(Node* head){
+//     map<int, int> m1;
+//     Node* temp = head; 
+//     m1[temp->data]++; 
+//     while(temp->next != null){
+//         m1[temp->next->data]++;
+//         if(m1[temp->next->data] > 1){
+//             Node* temp1 = temp;
+//             temp1 = temp1->next;
+//             temp->next = temp1->next;
+//             free(temp1);
+//             m1[temp->next->data]--;
+//         } else temp = temp->next;
+//     }
+// }
+// int main(){
+//     Node* head = null;
+//     pushAtEnd(&head, 12);
+//     pushAtEnd(&head, 11);
+//     pushAtEnd(&head, 12);
+//     pushAtEnd(&head, 21);
+//     pushAtEnd(&head, 41);
+//     pushAtEnd(&head, 43);
+//     pushAtEnd(&head, 11);
+//     pushAtEnd(&head, 21);
+//     pushAtEnd(&head, 10);
+//     printList(head);
+//     removeDuplicates(head);
+//     printList(head);
+// } will do later
+
+// Practise : To swap NODEs in a singly linked list
 #include<bits/stdc++.h>
 #define null NULL
 using namespace std;
@@ -1093,7 +1208,7 @@ class Node{
     int data;
     Node* next;
 };
-void pushAtEnd(Node** head, char data){
+void pushAtEnd(Node** head, int data){
     Node* newNode = new Node();
     newNode->data = data;
     newNode->next = null;
@@ -1113,28 +1228,9 @@ void printList(Node* head){
     }
     cout<<"\n";
 }
-void removeDuplicates(Node* head){
-    Node* temp = head;
-    while(temp->next != null){
-        if(temp->data != temp->next->data) temp = temp->next;
-        else{
-            Node* temp1 = temp;
-            temp1 = temp1->next;
-            temp->next = temp1->next;
-            free(temp1);
-        }
-    } 
-}
-int main(){
-    Node* head = null;
-    pushAtEnd(&head, 11);
-    pushAtEnd(&head, 21);
-    pushAtEnd(&head, 39);
-    pushAtEnd(&head, 39);
-    pushAtEnd(&head, 39);
-    pushAtEnd(&head, 48);
-    pushAtEnd(&head, 48);
-    printList(head);
-    removeDuplicates(head);
-    printList(head);
+void swapNodes(Node* head, int k1, int k2){
+    Node* n1, *np1, *n2, *np2, *temp = head;
+    while(temp != null){
+        
+    }
 }
