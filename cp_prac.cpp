@@ -14361,3 +14361,24 @@
 //         cout<<count<<"\n";
 //     }
 // }
+
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(0);cin.tie(0);
+// #define lli long long int
+// using namespace std;
+// int main(){
+//     FastIO
+//     int N, Q; cin>>N>>Q;
+//     vector<int> vect;
+//     for(int i=0; i<N; i++){
+//         lli x; cin>>x;
+//         vect.push_back(x);
+//     }
+//     sort(vect.begin(), vect.end());
+//     auto it = vect.begin();
+//     for(int i=0; i<Q; i++){
+//         lli x; cin>>x;
+//         if(binary_search(vect.begin(), vect.end(), x)) cout<<"YES"<<"\n";
+//         else cout<<"NO"<<"\n";
+//     }
+// } a/c
