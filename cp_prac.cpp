@@ -14325,13 +14325,39 @@
 //     }
 // } a/c
 
-// Aditya @ydasc815
-#include<bits/stdc++.h>
-#define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
-using namespace std;
-int main(){
-    FastIO
-    string s[] = {"GST 0%", "GST 0.25%", "GST 12%", "GST 18%", "GST 28%", "GST 5%", "GST 3%"};
-    sort(s, s+7);
-    for(string x : s) cout<<x<<" ";
-}
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     string s[] = {"GST 0%", "GST 0.25%", "GST 12%", "GST 18%", "GST 28%", "GST 5%", "GST 3%"};
+//     sort(s, s+7);
+//     for(string x : s) cout<<x<<" ";
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int t;
+//     cin>>t;
+//     for(int i=0; i<t; i++){
+//         int n; cin>>n;
+//         int arr[n];
+//         for(int j=0; j<n; j++){
+//             cin>>arr[j];
+//         }
+//         int min = arr[0]; int count = 1;
+//         for(int j=0; j<n; j++){
+//             int a=j-1, b=0;
+//             while(a>=0 && b<=5){
+//                 if(arr[a] < min){
+//                     min = arr[a];
+//                     count++;
+//                 }
+//                 a--; b++;
+//             }
+//         }
+//         cout<<count<<"\n";
+//     }
+// }
