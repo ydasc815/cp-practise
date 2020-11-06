@@ -13812,5 +13812,8 @@
 using namespace std;
 int main(){
     FastIO
-    
+    int r, x = 2;
+    float y = 5;
+    r = y%x;
+    cout<<r;
 }
