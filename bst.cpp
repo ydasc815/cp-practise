@@ -156,6 +156,12 @@ void inOrderBst(Node* root){
     cout<<root->data<<" ";
     inOrderBst(root->right);
 }
+void postOrderBst(Node* root){
+    if(root == null) return;
+    postOrderBst(root->left);
+    postOrderBst(root->right);
+    cout<<root->data<<" ";
+}
 int main(){
     FastIO
     Node* root = null;
@@ -168,8 +174,10 @@ int main(){
     insertInBST(&root, 11);
     insertInBST(&root, 10);
     insertInBST(&root, 7);
-    // perform pre-order traversal of BST formed from arr = [1, 3, 2, 5, -1, 6, 11, 10, 7]
+    // perform pre-order, in-order & post-order traversal of BST formed from arr = [1, 3, 2, 5, -1, 6, 11, 10, 7]
     preOrderBst(root);
     cout<<"\n";
     inOrderBst(root);
+    cout<<"\n";
+    postOrderBst(root);
 }
