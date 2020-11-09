@@ -13831,15 +13831,25 @@
 //     cout<<sum(5);
 // }
 
-// Aditya @ydasc815
-#include<bits/stdc++.h>
-#define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
-using namespace std;
-int minA(int a[], int size){
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int minA(int a[], int size){
     
+// }
+// int main(){
+//     FastIO
+//     int a[10] = {5, 6, 3, 2, 9, 11, 10, -3, -4, 7};
+//     cout<<minA(a, 10);
+// }
+
+#include<iostream>
+using namespace std;
+int rec(int n){
+    if(n == 1) return 1;
+    cout<<1 + rec(n-1)<<" ";
 }
 int main(){
-    FastIO
-    int a[10] = {5, 6, 3, 2, 9, 11, 10, -3, -4, 7};
-    cout<<minA(a, 10);
+    rec(10);
 }

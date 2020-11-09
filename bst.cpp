@@ -122,10 +122,72 @@
 // }
 
 // Depth first traversals : Preorder, Inorder, Postorder
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// #define null NULL
+// using namespace std;
+// class Node{
+//     public:
+//     int data;
+//     Node* left = null;
+//     Node* right = null;
+// };
+// void insertInBST(Node** root, int data){
+//     Node* newNode = new Node();
+//     newNode->data = data;
+//     newNode->left = newNode->right = null;
+//     if(*root == null){
+//         *root = newNode;
+//     } else if(data <= (*root)->data){
+//         insertInBST(&(*root)->left, data);
+//     } else{
+//         insertInBST(&(*root)->right, data);
+//     }
+// }
+// void preOrderBst(Node* root){
+//     if(root == null) return;
+//     cout<<root->data<<" ";
+//     preOrderBst(root->left);
+//     preOrderBst(root->right);
+// }
+// void inOrderBst(Node* root){
+//     if(root == null) return;
+//     inOrderBst(root->left);
+//     cout<<root->data<<" ";
+//     inOrderBst(root->right);
+// }
+// void postOrderBst(Node* root){
+//     if(root == null) return;
+//     postOrderBst(root->left);
+//     postOrderBst(root->right);
+//     cout<<root->data<<" ";
+// }
+// int main(){
+//     FastIO
+//     Node* root = null;
+//     insertInBST(&root, 1);
+//     insertInBST(&root, 3);
+//     insertInBST(&root, 2);
+//     insertInBST(&root, 5);
+//     insertInBST(&root, -1);
+//     insertInBST(&root, 6);
+//     insertInBST(&root, 11);
+//     insertInBST(&root, 10);
+//     insertInBST(&root, 7);
+//     // perform pre-order, in-order & post-order traversal of BST formed from arr = [1, 3, 2, 5, -1, 6, 11, 10, 7]
+//     preOrderBst(root);
+//     cout<<"\n";
+//     inOrderBst(root);
+//     cout<<"\n";
+//     postOrderBst(root);
+// }
+
+// check if given binary tree is a binary search tree
 #include<bits/stdc++.h>
 #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
 #define null NULL
 using namespace std;
+vector<int> v;
 class Node{
     public:
     int data;
@@ -144,23 +206,11 @@ void insertInBST(Node** root, int data){
         insertInBST(&(*root)->right, data);
     }
 }
-void preOrderBst(Node* root){
-    if(root == null) return;
-    cout<<root->data<<" ";
-    preOrderBst(root->left);
-    preOrderBst(root->right);
-}
 void inOrderBst(Node* root){
     if(root == null) return;
     inOrderBst(root->left);
-    cout<<root->data<<" ";
+    v.push_back(root->data);
     inOrderBst(root->right);
-}
-void postOrderBst(Node* root){
-    if(root == null) return;
-    postOrderBst(root->left);
-    postOrderBst(root->right);
-    cout<<root->data<<" ";
 }
 int main(){
     FastIO
@@ -174,10 +224,13 @@ int main(){
     insertInBST(&root, 11);
     insertInBST(&root, 10);
     insertInBST(&root, 7);
-    // perform pre-order, in-order & post-order traversal of BST formed from arr = [1, 3, 2, 5, -1, 6, 11, 10, 7]
-    preOrderBst(root);
-    cout<<"\n";
-    inOrderBst(root);
-    cout<<"\n";
-    postOrderBst(root);
+    int fg = 0;
+    for(int i=1; i<v.size()-1; i++){
+        if(v[i-1] > v[i] || v[i] > v[i+1]){
+            fg = 1;
+            break;
+        }
+    }
+    if(fg == 1) cout<<"Not a BST";
+    else cout<<"Yes, a BST";
 }
