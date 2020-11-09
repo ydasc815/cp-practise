@@ -69,7 +69,7 @@
 // }
 
 // Operations in Binary Search Tree
-// given a bst, search if an input-ted number exists in it
+// level order traversal -> breadth first search - implement using Queue
 #include<bits/stdc++.h>
 #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
 #define null NULL
@@ -77,8 +77,8 @@ using namespace std;
 class Node{
     public:
     int data;
-    Node* left;
-    Node* right;
+    Node* left = null;
+    Node* right = null;
 };
 void insertInBST(Node** root, int data){
     Node* newNode = new Node();
@@ -92,11 +92,17 @@ void insertInBST(Node** root, int data){
         insertInBST(&(*root)->right, data);
     }
 }
-bool searchInBST(Node* root, int key){
-    if(root->data == key) return true;
-    else if(root == null) return false;
-    else if(key <= root->data) return searchInBST(root->left, key);
-    else return searchInBST(root->right, key);
+void levelOrderBst(Node* root){
+    if(root == null) return;
+    queue<Node*> Q;
+    Q.push(root);
+    while(!Q.empty()){
+        Node* curr = Q.front();
+        cout<<curr->data<<" ";
+        if(curr->left != null) Q.push(curr->left);
+        if(curr->right != null) Q.push(curr->right);
+        Q.pop();
+    }
 }
 int main(){
     FastIO
@@ -110,5 +116,7 @@ int main(){
     insertInBST(&root, 11);
     insertInBST(&root, 10);
     insertInBST(&root, 7);
-    cout<<searchInBST(root, -2);
+    // level order traversal of bst
+    // perform level order traversal of bst formed from arr = [1, 3, 2, 5, -1, 6, 11, 10, 7]
+    levelOrderBst(root);
 }
