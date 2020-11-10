@@ -13876,4 +13876,30 @@
 //     }
 // } a/c
 
-
+// Aditya @ydasc815
+#include<bits/stdc++.h>
+#define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+using namespace std;
+int main(){
+    FastIO
+    string s; cin>>s;
+    int u = 0, l = 0;
+    for(int i=0; i<s.length(); i++){
+        if(isupper(s[i])) u++;
+        else l++;
+    }
+    if(u > l){
+        for(int i=0; i<s.length(); i++){
+            if(islower(s[i])) s[i] -= 32;
+        }
+    } else if(l > u){
+        for(int i=0; i<s.length(); i++){
+            if(isupper(s[i])) s[i] += 32;
+        }
+    } else{
+        for(int i=0; i<s.length(); i++){
+            if(isupper(s[i])) s[i] += 32;
+        }
+    }
+    cout<<s;
+}
