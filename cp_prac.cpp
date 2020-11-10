@@ -13844,12 +13844,36 @@
 //     cout<<minA(a, 10);
 // }
 
-#include<iostream>
-using namespace std;
-int rec(int n){
-    if(n == 1) return 1;
-    cout<<1 + rec(n-1)<<" ";
-}
-int main(){
-    rec(10);
-}
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int a[3][3], b[3][3];
+//     for(int i=0; i<3; i++){
+//         for(int j=0; j<3; j++){
+//             cin>>a[i][j];
+//             b[i][j] = 0;
+//         }
+//     }
+//     for(int i=0; i<3; i++){
+//         for(int j=0; j<3; j++){
+//             b[i][j] += a[i][j];
+//             if(i-1 >= 0) b[i][j] += a[i-1][j];
+//             if(j+1 < 3) b[i][j] += a[i][j+1];
+//             if(i+1 < 3) b[i][j] += a[i+1][j];
+//             if(j-1 >= 0) b[i][j] += a[i][j-1];
+//             if(b[i][j]%2 == 0) b[i][j] = 1;
+//             else b[i][j] = 0;
+//         }
+//     }
+//     for(int i=0; i<3; i++){
+//         for(int j=0; j<3; j++){
+//             cout<<b[i][j];
+//         }
+//         cout<<"\n";
+//     }
+// } a/c
+
+
