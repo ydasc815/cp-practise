@@ -13876,6 +13876,34 @@
 //     }
 // } a/c
 
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     string s; cin>>s;
+//     int u = 0, l = 0;
+//     for(int i=0; i<s.length(); i++){
+//         if(isupper(s[i])) u++;
+//         else l++;
+//     }
+//     if(u > l){
+//         for(int i=0; i<s.length(); i++){
+//             if(islower(s[i])) s[i] -= 32;
+//         }
+//     } else if(l > u){
+//         for(int i=0; i<s.length(); i++){
+//             if(isupper(s[i])) s[i] += 32;
+//         }
+//     } else{
+//         for(int i=0; i<s.length(); i++){
+//             if(isupper(s[i])) s[i] += 32;
+//         }
+//     }
+//     cout<<s;
+// } a/c
+
 // Aditya @ydasc815
 #include<bits/stdc++.h>
 #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
@@ -13883,23 +13911,17 @@ using namespace std;
 int main(){
     FastIO
     string s; cin>>s;
-    int u = 0, l = 0;
+    int cn = 0, f = 0;
     for(int i=0; i<s.length(); i++){
-        if(isupper(s[i])) u++;
-        else l++;
+        if(s[i] == '4' || s[i] == '7') cn++;
     }
-    if(u > l){
-        for(int i=0; i<s.length(); i++){
-            if(islower(s[i])) s[i] -= 32;
-        }
-    } else if(l > u){
-        for(int i=0; i<s.length(); i++){
-            if(isupper(s[i])) s[i] += 32;
-        }
-    } else{
-        for(int i=0; i<s.length(); i++){
-            if(isupper(s[i])) s[i] += 32;
+    string scn = to_string(cn);
+    for(int i=0; i<scn.length(); i++){
+        if(scn[i] != '4' && scn[i] != '7'){
+            f = 1;
+            break;
         }
     }
-    cout<<s;
+    if(f == 0) cout<<"YES";
+    else cout<<"NO";
 }
