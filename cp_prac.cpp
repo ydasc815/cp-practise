@@ -14003,24 +14003,50 @@
 //     }
 // }
 
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int n, cnt = 0; cin>>n; int a[n];
+//     for(int i=0; i<n; i++) cin>>a[i];
+//     int mx = a[0], mn = a[0];
+//     for(int i=1; i<n; i++){
+//         if(a[i] > mx) {
+//             cnt++;
+//             mx = a[i];
+//         }
+//         if(a[i] < mn) {
+//             cnt++;
+//             mn = a[i];
+//         }
+//     }
+//     cout<<cnt;
+// }
+
 // Aditya @ydasc815
 #include<bits/stdc++.h>
 #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
 using namespace std;
 int main(){
     FastIO
-    int n, cnt = 0; cin>>n; int a[n];
-    for(int i=0; i<n; i++) cin>>a[i];
-    int mx = a[0], mn = a[0];
-    for(int i=1; i<n; i++){
-        if(a[i] > mx) {
-            cnt++;
-            mx = a[i];
+    string s, o = ""; cin>>s;
+    map<int, int> m; int f = 0;
+    for(int i=0; i<s.length(); i++){
+        if(s[i] >= 48 && s[i] <= 57){
+            m[s[i]-48]++;
         }
-        if(a[i] < mn) {
-            cnt++;
-            mn = a[i];
-        }
-    }
-    cout<<cnt;
+    } if(m[3] > 0) f = 1;    
+    while(m[1]--){
+        o.append("1+");
+    }  
+    while(m[2]--){
+        o.append("2+");
+    }    
+    while(m[3]--){
+        o.append("3+");
+    }    
+    o.erase(o.length()-1);
+    cout<<o;
 }
