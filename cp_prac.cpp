@@ -13904,24 +13904,58 @@
 //     cout<<s;
 // } a/c
 
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     string s; cin>>s;
+//     int cn = 0, f = 0;
+//     for(int i=0; i<s.length(); i++){
+//         if(s[i] == '4' || s[i] == '7') cn++;
+//     }
+//     string scn = to_string(cn);
+//     for(int i=0; i<scn.length(); i++){
+//         if(scn[i] != '4' && scn[i] != '7'){
+//             f = 1;
+//             break;
+//         }
+//     }
+//     if(f == 0) cout<<"YES";
+//     else cout<<"NO";
+// } a/c
+
 // Aditya @ydasc815
 #include<bits/stdc++.h>
 #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
 using namespace std;
+bool isPrime(int n){
+    int fg = 0;
+    if(n == 1) return 0;
+    if(n%2==0 && n!=2) return 0;
+    else{
+        for(int i=2; i<=sqrt(n); i++){
+            if(n%i==0){
+                fg = 1;
+                break;
+            }
+        }
+        return fg == 1 ? 0 : 1;
+    }
+}
 int main(){
     FastIO
-    string s; cin>>s;
-    int cn = 0, f = 0;
-    for(int i=0; i<s.length(); i++){
-        if(s[i] == '4' || s[i] == '7') cn++;
-    }
-    string scn = to_string(cn);
-    for(int i=0; i<scn.length(); i++){
-        if(scn[i] != '4' && scn[i] != '7'){
-            f = 1;
-            break;
+    int n, m, f = 0; cin>>n>>m;
+    if(!isPrime(n) || !isPrime(m)) cout<<"NO";
+    else {
+        for(int i=n+1; i<m; i++){
+            if(isPrime(i)){
+                f = 1;
+                break;
+            }
         }
+        if(f == 0) cout<<"YES";
+        else cout<<"NO";
     }
-    if(f == 0) cout<<"YES";
-    else cout<<"NO";
 }
