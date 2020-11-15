@@ -13926,36 +13926,88 @@
 //     else cout<<"NO";
 // } a/c
 
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// bool isPrime(int n){
+//     int fg = 0;
+//     if(n == 1) return 0;
+//     if(n%2==0 && n!=2) return 0;
+//     else{
+//         for(int i=2; i<=sqrt(n); i++){
+//             if(n%i==0){
+//                 fg = 1;
+//                 break;
+//             }
+//         }
+//         return fg == 1 ? 0 : 1;
+//     }
+// }
+// int main(){
+//     FastIO
+//     int n, m, f = 0; cin>>n>>m;
+//     if(!isPrime(n) || !isPrime(m)) cout<<"NO";
+//     else {
+//         for(int i=n+1; i<m; i++){
+//             if(isPrime(i)){
+//                 f = 1;
+//                 break;
+//             }
+//         }
+//         if(f == 0) cout<<"YES";
+//         else cout<<"NO";
+//     }
+// }
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// #define int long long
+// using namespace std;
+// int main(){
+//     FastIO
+//     int t, n, k, s; cin>>t;
+//     for(int i=1; i<=t; i++){
+//         cin>>n>>k>>s;
+//         cout<<"Case #"<<i<<": "<<min(n + (2*k) - (2*s), n + k)<<"\n";
+//     }
+// }
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// #define int unsigned long long
+// using namespace std;
+// int solve(int l, int r){
+//     int c = 0;
+//     for(int i=l; i<=r; i++){
+//         int f = 0;
+//         string x = to_string(i);
+//         for(int j=0; j<x.length(); j++){
+//             if((x[j]-48)%2 != (j+1)%2){
+//                 f = 1;
+//                 break;
+//             }
+//         }
+//         if(f == 0) c++;
+//     }
+//     return c;
+// }
+// signed main(){
+//     FastIO
+//     int t, l, r; cin>>t;
+//     for(int i=1; i<=t; i++){
+//         cin>>l>>r;
+//         cout<<"Case #"<<i<<": "<<solve(l, r)<<"\n";
+//     }
+// }
+
 // Aditya @ydasc815
 #include<bits/stdc++.h>
 #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
 using namespace std;
-bool isPrime(int n){
-    int fg = 0;
-    if(n == 1) return 0;
-    if(n%2==0 && n!=2) return 0;
-    else{
-        for(int i=2; i<=sqrt(n); i++){
-            if(n%i==0){
-                fg = 1;
-                break;
-            }
-        }
-        return fg == 1 ? 0 : 1;
-    }
-}
 int main(){
     FastIO
-    int n, m, f = 0; cin>>n>>m;
-    if(!isPrime(n) || !isPrime(m)) cout<<"NO";
-    else {
-        for(int i=n+1; i<m; i++){
-            if(isPrime(i)){
-                f = 1;
-                break;
-            }
-        }
-        if(f == 0) cout<<"YES";
-        else cout<<"NO";
-    }
+    
 }
