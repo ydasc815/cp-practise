@@ -14025,28 +14025,30 @@
 //     cout<<cnt;
 // }
 
-// Aditya @ydasc815
-#include<bits/stdc++.h>
-#define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
-using namespace std;
-int main(){
-    FastIO
-    string s, o = ""; cin>>s;
-    map<int, int> m; int f = 0;
-    for(int i=0; i<s.length(); i++){
-        if(s[i] >= 48 && s[i] <= 57){
-            m[s[i]-48]++;
-        }
-    } if(m[3] > 0) f = 1;    
-    while(m[1]--){
-        o.append("1+");
-    }  
-    while(m[2]--){
-        o.append("2+");
-    }    
-    while(m[3]--){
-        o.append("3+");
-    }    
-    o.erase(o.length()-1);
-    cout<<o;
-}
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     string s, o = ""; cin>>s;
+//     map<int, int> m; int f = 0;
+//     for(int i=0; i<s.length(); i++){
+//         if(s[i] >= 48 && s[i] <= 57){
+//             m[s[i]-48]++;
+//         }
+//     } if(m[3] > 0) f = 1;    
+//     while(m[1]--){
+//         o.append("1+");
+//     }  
+//     while(m[2]--){
+//         o.append("2+");
+//     }    
+//     while(m[3]--){
+//         o.append("3+");
+//     }    
+//     o.erase(o.length()-1);
+//     cout<<o;
+// }
+
+// fixed a bug in PayO internship app - time 10 hours
