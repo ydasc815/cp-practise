@@ -14053,22 +14053,24 @@
 
 // fixed a bug in PayO internship app - time 10 hours
 
-// Aditya @ydasc815
-#include<bits/stdc++.h>
-#define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
-using namespace std;
-int main(){
-    FastIO
-    int n; cin>>n;
-    string a[n], x; int f = 0;
-    for(int i=0; i<n; i++) cin>>a[i];
-    cin>>x;
-    for(int i=0; i<n; i++){
-        if(a[i] == x){
-            f = 1;
-            cout<<x;
-            break;
-        }
-    }
-    cout<<f;
-}
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int n; cin>>n;
+//     string a[n], x; int f = 0;
+//     for(int i=0; i<n; i++) cin>>a[i];
+//     cin>>x;
+//     for(int i=0; i<n; i++){
+//         if(a[i] == x){
+//             f = 1;
+//             cout<<x;
+//             break;
+//         }
+//     }
+//     cout<<f;
+// }
+
+// fixing bugs in payo app
