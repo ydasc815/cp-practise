@@ -14091,3 +14091,27 @@
 //     cout<<x;
 // }
 
+// // Aditya @ydasc815
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+    int n, x, s = 0, s1 = 0; cin>>n;
+    vector<int> v; v.push_back(0);
+    for(int i=0; i<n; i++){
+        cin>>x;
+        if(x == 1) v.push_back(i);
+    } x = 0;
+    v.push_back(n-1);
+    for(int i=0; i<v.size(); i++){
+        s1 = 0;
+        for(int j=i+1; j<v.size(); j++){
+            if(v[j] - v[i] == 1) s1++;
+            else {
+                s1 += v[j] - v[i];
+                s = max(s, s1); 
+                break;
+            }
+        }
+    }
+    cout<<s;
+}
