@@ -14135,118 +14135,139 @@
 //     cout<<f;
 // }
 
-#include <bits/stdc++.h> 
-using namespace std; 
+// #include <bits/stdc++.h> 
+// using namespace std; 
   
-const int ALPHABET_SIZE = 26; 
+// const int ALPHABET_SIZE = 26; 
   
-// trie node 
-struct TrieNode 
-{ 
-    struct TrieNode *children[26]; 
+// // trie node 
+// struct TrieNode 
+// { 
+//     struct TrieNode *children[26]; 
   
-    // isEndOfWord is true if the node represents 
-    // end of a word 
-    bool isEndOfWord; 
-}; 
+//     // isEndOfWord is true if the node represents 
+//     // end of a word 
+//     bool isEndOfWord; 
+// }; 
   
-// Returns new trie node (initialized to NULLs) 
-struct TrieNode *getNode(void) 
-{ 
-    struct TrieNode *pNode =  new TrieNode; 
+// // Returns new trie node (initialized to NULLs) 
+// struct TrieNode *getNode(void) 
+// { 
+//     struct TrieNode *pNode =  new TrieNode; 
   
-    pNode->isEndOfWord = false; 
+//     pNode->isEndOfWord = false; 
   
-    for (int i = 0; i < 26; i++) 
-        pNode->children[i] = NULL; 
+//     for (int i = 0; i < 26; i++) 
+//         pNode->children[i] = NULL; 
   
-    return pNode; 
-} 
+//     return pNode; 
+// } 
   
-// If not present, inserts key into trie 
-// If the key is prefix of trie node, just 
-// marks leaf node 
-void insert(struct TrieNode *root, string key) 
-{ 
-    struct TrieNode *pCrawl = root; 
+// // If not present, inserts key into trie 
+// // If the key is prefix of trie node, just 
+// // marks leaf node 
+// void insert(struct TrieNode *root, string key) 
+// { 
+//     struct TrieNode *pCrawl = root; 
   
-    for (int i = 0; i < key.length(); i++) 
-    { 
-        int index = key[i] - 'a'; 
-        if (!pCrawl->children[index]) 
-            pCrawl->children[index] = getNode(); 
+//     for (int i = 0; i < key.length(); i++) 
+//     { 
+//         int index = key[i] - 'a'; 
+//         if (!pCrawl->children[index]) 
+//             pCrawl->children[index] = getNode(); 
   
-        pCrawl = pCrawl->children[index]; 
-    } 
+//         pCrawl = pCrawl->children[index]; 
+//     } 
   
-    // mark last node as leaf 
-    pCrawl->isEndOfWord = true; 
-} 
+//     // mark last node as leaf 
+//     pCrawl->isEndOfWord = true; 
+// } 
   
-// Returns true if key presents in trie, else 
-// false 
-bool search(struct TrieNode *root, string key) 
-{ 
-    struct TrieNode *pCrawl = root; 
+// // Returns true if key presents in trie, else 
+// // false 
+// bool search(struct TrieNode *root, string key) 
+// { 
+//     struct TrieNode *pCrawl = root; 
   
-    for (int i = 0; i < key.length(); i++) 
-    { 
-        int index = key[i] - 'a'; 
-        if (!pCrawl->children[index]) 
-            return false; 
+//     for (int i = 0; i < key.length(); i++) 
+//     { 
+//         int index = key[i] - 'a'; 
+//         if (!pCrawl->children[index]) 
+//             return false; 
   
-        pCrawl = pCrawl->children[index]; 
-    } 
+//         pCrawl = pCrawl->children[index]; 
+//     } 
   
-    return (pCrawl != NULL && pCrawl->isEndOfWord); 
-} 
+//     return (pCrawl != NULL && pCrawl->isEndOfWord); 
+// } 
   
-// Driver 
-int main() 
-{ 
-    // Input keys (use only 'a' through 'z' 
-    // and lower case) 
-    string keys[] = {"the", "a", "there", 
-                    "answer", "any", "by", 
-                     "bye", "their" }; 
-    int n = sizeof(keys)/sizeof(keys[0]); 
+// // Driver 
+// int main() 
+// { 
+//     // Input keys (use only 'a' through 'z' 
+//     // and lower case) 
+//     string keys[] = {"the", "a", "there", 
+//                     "answer", "any", "by", 
+//                      "bye", "their" }; 
+//     int n = sizeof(keys)/sizeof(keys[0]); 
   
-    struct TrieNode *root = getNode(); 
+//     struct TrieNode *root = getNode(); 
   
-    // Construct trie 
-    for (int i = 0; i < n; i++) 
-        insert(root, keys[i]); 
+//     // Construct trie 
+//     for (int i = 0; i < n; i++) 
+//         insert(root, keys[i]); 
   
-    // Search for different keys 
-    search(root, "the")? cout << "Yes\n" : 
-                         cout << "No\n"; 
-    search(root, "these")? cout << "Yes\n" : 
-                           cout << "No\n"; 
-    return 0; 
-} 
+//     // Search for different keys 
+//     search(root, "the")? cout << "Yes\n" : 
+//                          cout << "No\n"; 
+//     search(root, "these")? cout << "Yes\n" : 
+//                            cout << "No\n"; 
+//     return 0; 
+// } 
 
-// test commit
-// // Aditya @ydasc815
-#include<bits/stdc++.h>
-using namespace std;
-int main() {
-    int n, x, s = 0, s1 = 0; cin>>n;
-    vector<int> v; v.push_back(0);
-    for(int i=0; i<n; i++){
-        cin>>x;
-        if(x == 1) v.push_back(i);
-    } x = 0;
-    v.push_back(n-1);
-    for(int i=0; i<v.size(); i++){
-        s1 = 0;
-        for(int j=i+1; j<v.size(); j++){
-            if(v[j] - v[i] == 1) s1++;
-            else {
-                s1 += v[j] - v[i];
-                s = max(s, s1); 
-                break;
-            }
-        }
-    }
-    cout<<s;
-}
+// // test commit
+// // // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main() {
+//     int n, x, s = 0, s1 = 0; cin>>n;
+//     vector<int> v; v.push_back(0);
+//     for(int i=0; i<n; i++){
+//         cin>>x;
+//         if(x == 1) v.push_back(i);
+//     } x = 0;
+//     v.push_back(n-1);
+//     for(int i=0; i<v.size(); i++){
+//         s1 = 0;
+//         for(int j=i+1; j<v.size(); j++){
+//             if(v[j] - v[i] == 1) s1++;
+//             else {
+//                 s1 += v[j] - v[i];
+//                 s = max(s, s1); 
+//                 break;
+//             }
+//         }
+//     }
+//     cout<<s;
+// }
+
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(0);cin.tie(0);
+// #define lli long long int
+// using namespace std;
+// int main(){
+//     FastIO
+//     lli t; cin>>t;
+//     for(lli i=0; i<t; i++){
+//         lli n; cin>>n; lli x;
+//         lli max_spd = INT_MAX, cnt = 0;
+//         for(lli j=0; j<n; j++){
+//             cin>>x;
+//             if(x<=max_spd){
+//                 max_spd = x;
+//                 cnt++;
+//             }
+//         }
+//         cout<<cnt<<"\n";
+//     }
+// }
