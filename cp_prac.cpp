@@ -14271,3 +14271,16 @@
 //         cout<<cnt<<"\n";
 //     }
 // }
+
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int n, c = 0, x = 0, a, b; cin>>n;
+//     while(n--){
+//         cin>>a>>b;
+//         c = c - a + b;
+//         x = max(x, c);
+//     }
+//     cout<<x;
+// }
+
