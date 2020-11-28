@@ -14294,3 +14294,34 @@
 //         cout<<"\n";
 //     }
 // } a/c
+
+// // Aditya @ydasc815
+// #include<bits/stdc++.h>
+// #define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+// using namespace std;
+// int main(){
+//     FastIO
+//     int t, n; cin>>t;
+//     while(t--){
+//         cin>>n;
+//         int a[n], f = 0; map<int, int> m;
+//         for(int i=0; i<n; i++){
+//             cin>>a[i];
+//             m[a[i]]++;
+//         }
+//         for(auto it=m.begin(); it!=m.end(); it++){
+//             if(it->second == 1){
+//                 f = 1;
+//                 for(int i=0; i<n; i++){
+//                     if(a[i] == it->first){
+//                         cout<<i+1<<"\n";
+//                         break;
+//                     }
+//                 }
+//                 break;
+//             }
+//         }
+//         if(f == 0) cout<<-1<<"\n";
+//     }
+// } a/c
+
