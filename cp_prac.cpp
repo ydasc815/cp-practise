@@ -14325,3 +14325,24 @@
 //     }
 // } a/c
 
+// Aditya @ydasc815
+#include<bits/stdc++.h>
+#define FastIO ios::sync_with_stdio(false);cin.tie(nullptr);
+using namespace std;
+int main(){
+    FastIO
+    int t, n; cin>>t;
+    while(t--){
+        cin>>n; 
+        int a[n], x = 0; map<int, int> m;
+        for(int i=0; i<n; i++){
+            cin>>a[i];
+            m[a[i]]++;
+        }
+        for(auto i=m.begin(); i!=m.end(); i++){
+            if(i->first == a[0]) i->second--;
+            if(i->first == a[n-1]) i->second--;
+        }
+        
+    }
+}
