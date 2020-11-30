@@ -14331,18 +14331,7 @@
 using namespace std;
 int main(){
     FastIO
-    int t, n; cin>>t;
-    while(t--){
-        cin>>n; 
-        int a[n], x = 0; map<int, int> m;
-        for(int i=0; i<n; i++){
-            cin>>a[i];
-            m[a[i]]++;
-        }
-        for(auto i=m.begin(); i!=m.end(); i++){
-            if(i->first == a[0]) i->second--;
-            if(i->first == a[n-1]) i->second--;
-        }
-        
-    }
+    string s[] = {"GST 0%", "GST 0.25%", "GST 12%", "GST 18%", "GST 28%", "GST 5%", "GST 3%"};
+    sort(s, s+7);
+    for(string x : s) cout<<x<<" ";
 }
